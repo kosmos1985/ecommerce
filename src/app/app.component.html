@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="100px">
+<!-- <mat-grid-list cols="5" rowHeight="100px">
     <mat-grid-tile
         *ngFor="let tile of tiles"
         [colspan]="tile.cols"
@@ -6,10 +6,16 @@
         [style.background]="tile.color">
       {{tile.text}}
     </mat-grid-tile>
-    <img src="assets/images/image-product-1-thumbnail" (click)="showGallery(index)">
-    <img src="assets/images/image-product-2-thumbnail" (click)="showGallery(index)">
-    <img src="assets/images/image-product-3-thumbnail" (click)="showGallery(index)">
-    <img src="assets/images/image-product-4-thumbnail" (click)="showGallery(index)">
-  </mat-grid-list>
 
+  </mat-grid-list> -->
 
+<div class="container">
+  <app-nav></app-nav>
+    <div class="content">
+      <img src="assets/images/image-product-1-thumbnail.jpg" (click)="showGallery(index)">
+      <img src="assets/images/image-product-2-thumbnail.jpg" (click)="showGallery(index)">
+      <img src="assets/images/image-product-3-thumbnail.jpg" (click)="showGallery(index)">
+      <img src="assets/images/image-product-4-thumbnail.jpg" (click)="showGallery(index)">
+      <router-outlet></router-outlet>
+    </div>
+</div>

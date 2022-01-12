@@ -20,6 +20,7 @@ export class AppComponent {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
+  index: number = 0;
 
   constructor(private gallery: Gallery) {}
 

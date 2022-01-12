@@ -11,7 +11,9 @@ import { MenComponent } from './content/men/men.component';
 import { WomenComponent } from './content/women/women.component';
 import { AboutComponent } from './content/about/about.component';
 import { ContactComponent } from './content/contact/contact.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { IvyGalleryModule } from 'angular-gallery';
+import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { IvyGalleryModule } from 'angular-gallery';
     MenComponent,
     WomenComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatGridListModule,
     IvyGalleryModule
   ],
   providers: [],
