@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CollectionsService } from 'src/app/services/collections.service';
 
 @Component({
   selector: 'app-collections',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collections.component.scss']
 })
 export class CollectionsComponent implements OnInit {
+ 
 
-  constructor() { }
+  constructor(private http: CollectionsService) { }
 
   ngOnInit(): void {
+ 
   }
+  
 
 }

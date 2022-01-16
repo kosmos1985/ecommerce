@@ -4,16 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './nav/nav/nav.component';
-import { CollectionsComponent } from './content/collections/collections.component';
-import { MenComponent } from './content/men/men.component';
+import { NavComponent } from './components/nav/nav/nav.component';
+import { CollectionsComponent } from './components/content/collections/collections.component';
+import { MenComponent } from './components/content/men/men.component';
 
-import { WomenComponent } from './content/women/women.component';
-import { AboutComponent } from './content/about/about.component';
-import { ContactComponent } from './content/contact/contact.component';
+import { WomenComponent } from './components/content/women/women.component';
+import { AboutComponent } from './components/content/about/about.component';
+import { ContactComponent } from './components/content/contact/contact.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { IvyGalleryModule } from 'angular-gallery';
-import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PageNotFoundComponent } from './content/page-not-found/page-not-found.c
     WomenComponent,
     AboutComponent,
     ContactComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './content/about/about.component';
-import { CollectionsComponent } from './content/collections/collections.component';
-import { ContactComponent } from './content/contact/contact.component';
-import { MenComponent } from './content/men/men.component';
-import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
-import { WomenComponent } from './content/women/women.component';
+import { AboutComponent } from './components/content/about/about.component';
+import { CollectionsComponent } from './components/content/collections/collections.component';
+import { ContactComponent } from './components/content/contact/contact.component';
+import { MenComponent } from './components/content/men/men.component';
+import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
+import { WomenComponent } from './components/content/women/women.component';
 
 const routes: Routes = [
 
