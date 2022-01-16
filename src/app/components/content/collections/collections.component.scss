@@ -1,6 +1,9 @@
-.container{
+.content{
     text-align: center;
+    width: 80%;
     margin-left: 20%;
+    padding: 1%;
+    background-color: hsl(25, 100%, 94%);
 }
 hr{
     width: 70%;
@@ -8,26 +11,31 @@ hr{
 img{
     width: 176px;
     height: 176px;
+    border-radius: 5%;
+    box-shadow: 1px 8px 24px -13px rgba(66, 68, 90, 1);
 }
 ul{
     display: block;
     li{
         list-style: none;
-        color:hsl(219, 9%, 45%);
+        color:hsl(26, 100%, 55%);
         font-size: 25px;
         margin: 50px 100px 0;
     }
     li.text{
         width: 200px;
         height: 60px;
-        background-color: hsl(25, 100%, 94%);
-        border-radius: 8%;
+        background-color: #3e3e3e;
+        border-radius: 5%;
         margin-left: 40%;
         text-align: center;
         padding: 1%;
         box-shadow: 1px 8px 24px -13px rgba(66, 68, 90, 1);
         span{
             margin: 4%;
+            b{
+                margin-top: 5px;
+            }
         }
     }
 }

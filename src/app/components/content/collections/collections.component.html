@@ -1,29 +1,31 @@
-<div class="container" *ngFor="let collection of collections">
-    <div class="women" *ngIf="collection.sex === 'Women'">
-        <ul>
-            <li class="text">
-               <b>{{collection.sex}}:</b>
-            </li>
-            <li>
-                <a routerLink="/women"><img [src]= "collection.small_img_1" alt="Women shoes"></a> 
-            </li>
-            <li class="text">
-                <span>{{collection.company}}</span> : <span><b>{{collection.price}} $</b></span>
-            </li>
-        </ul>
-    </div>
-    <hr>
-    <div class="men" *ngIf="collection.sex === 'Men'">
-        <ul>
-            <li class="text">
-               <b>{{collection.sex}}:</b>
-            </li>
-            <li>
-               <a routerLink="/men"><img [src]="collection.small_img_1" alt="Men shoes"></a> 
-            </li>
-            <li class="text">
-                <span>{{collection.company}}</span> : <span><b>{{collection.price}} $</b></span>
-            </li>
-        </ul>
+<div class="content">
+    <div class="container" *ngFor="let collection of collections">
+        <div class="women" *ngIf="collection.sex === 'Women'">
+            <ul>
+                <li class="text">
+                <b>{{collection.sex}}:</b>
+                </li>
+                <li>
+                    <a routerLink="/women"><img [src]= "collection.small_img_1" alt="Women shoes"></a> 
+                </li>
+                <li class="text">
+                    <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="men" *ngIf="collection.sex === 'Men'">
+            <ul>
+                <li class="text">
+                <b>{{collection.sex}}:</b>
+                </li>
+                <li>
+                <a routerLink="/men"><img [src]="collection.small_img_1" alt="Men shoes"></a> 
+                </li>
+                <li class="text">
+                    <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -9,9 +9,10 @@ import {takeUntil} from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnInit, OnDestroy{
   destroyed = new Subject<void>();
   currentScreenSize!: string;
+  config!: { [key: string]: string; };
 
 
   displayNameMap = new Map([
@@ -39,6 +40,16 @@ export class AppComponent implements OnDestroy{
           }
         }
       });
+  }
+
+  ngOnInit(){
+    setTimeout(() => {
+      this.config = {
+        title: 'Ecommerce',
+        footer: ' © Ecommerce, All rights reserved.',
+        date: new Date().toDateString()
+      };
+    }, 500);
   }
 
   ngOnDestroy() {

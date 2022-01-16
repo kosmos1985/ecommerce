@@ -2,8 +2,16 @@
   <app-nav></app-nav>
   <hr>
     <div class="content">
-        <router-outlet></router-outlet>
+      <div class="title">
+        {{config?.title}}
       </div>
+        <router-outlet></router-outlet>
+    </div>
+      <footer>
+        <div class="footer-copyright">
+            {{config?.date | date:'short'}} {{config?.footer}}
+        </div>
+      </footer>
  </div>
 
 
