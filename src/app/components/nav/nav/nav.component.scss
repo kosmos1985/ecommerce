@@ -1,10 +1,5 @@
-body,html {
-    margin: 0;
-    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
-    background: #000;
-  }
-  ul { 
-    margin: 150px auto 0; 
+ul { 
+    margin: 50px auto 0; 
     padding: 0; 
     list-style: none; 
     display: table;
@@ -17,16 +12,19 @@ body,html {
     padding: 15px 0;
   }
   a {
-    color: black;
+    color:hsl(220, 14%, 75%);
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     
     display: inline-block;
-    padding: 15px 20px;
+    padding: 45px 20px;
     position: relative;
   }
-  a:after {    
+  a:hover{
+    color: black; 
+  }
+  a:after {   
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -34,7 +32,7 @@ body,html {
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #fff;
+    background: rgb(250, 128, 14);
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }

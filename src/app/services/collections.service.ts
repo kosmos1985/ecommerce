@@ -15,7 +15,7 @@ export class CollectionsService {
   newTotal = new Subject();
   
 
-  BASE_URL = 'src/environments/environment/API_URL';
+  BASE_URL = 'http://localhost:3000/collections';
 
   constructor(private http: HttpClient) { }
  

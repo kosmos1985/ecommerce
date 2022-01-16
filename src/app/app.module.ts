@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,11 +12,11 @@ import { MenComponent } from './components/content/men/men.component';
 import { WomenComponent } from './components/content/women/women.component';
 import { AboutComponent } from './components/content/about/about.component';
 import { ContactComponent } from './components/content/contact/contact.component';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { IvyGalleryModule } from 'angular-gallery';
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatGridListModule,
+    HttpClientModule,
     IvyGalleryModule
   ],
   providers: [],

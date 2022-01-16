@@ -17,11 +17,11 @@ export class CartItemComponent implements OnInit {
   }
 
 
-  decrease(item : Collection) {
+  decrease(item : any) {
     this.http.decrease(item);
   };
 
-  increase(item: Collection) {
+  increase(item: any) {
     this.http.increase(item);
   };
 
