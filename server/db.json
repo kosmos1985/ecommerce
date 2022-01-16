@@ -1,0 +1,68 @@
+{
+  "collections": [
+    {
+      "id": 1,
+      "company": "Snakers company",
+      "title": "Fall limited snakers",
+      "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
+      "price": 250,
+      "sex":"women",
+      "large_img_1": "../src/assets/snakers_women/image-product-1.jpg",
+      "large_img_2": "../src/assets/snakers_women/image-product-2.jpg",
+      "large_img_3": "../src/assets/snakers_women/image-product-3.jpg",
+      "large_img_4": "../src/assets/snakers_women/image-product-4.jpg",
+      "small_img_1": "../src/assets/snakers_women/image-product-1-thumbnail.jpg",
+      "small_img_2": "../src/assets/snakers_women/image-product-2-thumbnail.jpg",
+      "small_img_3": "../src/assets/snakers_women/image-product-3-thumbnail.jpg",
+      "small_img_4": "../src/assets/snakers_women/image-product-4-thumbnail.jpg"
+    },
+    {
+      "id": 2,
+      "company": "Snakers company",
+      "title": "For creating men",
+      "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
+      "price": 340,
+      "sex":"men",
+      "large_img_1": "../src/assets/snakers_men/image-product-1.jpg",
+      "large_img_2": "../src/assets/snakers_men/image-product-2.jpg",
+      "large_img_3": "../src/assets/snakers_men/image-product-3.jpg",
+      "large_img_4": "../src/assets/snakers_men/image-product-4.jpg",
+      "small_img_1": "../src/assets/snakers_men/image-product-1-thumbnail.jpg",
+      "small_img_2": "../src/assets/snakers_men/image-product-2-thumbnail.jpg",
+      "small_img_3": "../src/assets/snakers_men/image-product-3-thumbnail.jpg",
+      "small_img_4": "../src/assets/snakers_men/image-product-4-thumbnail.jpg"
+    },
+    {
+      "id": 3,
+      "company": "Adidas company",
+      "title": "For women loving sport",
+      "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
+      "price": 340,
+      "sex":"women",
+      "large_img_1": "../src/assets/adidas_women/image-product-1.jpg",
+      "large_img_2": "../src/assets/adidas_women/image-product-2.jpg",
+      "large_img_3": "../src/assets/adidas_women/image-product-3.jpg",
+      "large_img_4": "../src/assets/adidas_women/image-product-4.jpg",
+      "small_img_1": "../src/assets/adidas_women/image-product-1-thumbnail.jpg",
+      "small_img_2": "../src/assets/adidas_women/image-product-2-thumbnail.jpg",
+      "small_img_3": "../src/assets/adidas_women/image-product-3-thumbnail.jpg",
+      "small_img_4": "../src/assets/adidas_women/image-product-4-thumbnail.jpg"
+    },
+    {
+      "id": 4,
+      "company": "Adidas company",
+      "title": "For men loving sport",
+      "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
+      "price": 190,
+      "sex":"men",
+      "large_img_1": "../src/assets/adidas_men/image-product-1.jpg",
+      "large_img_2": "../src/assets/adidas_men/image-product-2.jpg",
+      "large_img_3": "../src/assets/adidas_men/image-product-3.jpg",
+      "large_img_4": "../src/assets/adidas_men/image-product-4.jpg",
+      "small_img_1": "../src/assets/adidas_men/image-product-1-thumbnail.jpg",
+      "small_img_2": "../src/assets/adidas_men/image-product-2-thumbnail.jpg",
+      "small_img_3": "../src/assets/adidas_men/image-product-3-thumbnail.jpg",
+      "small_img_4": "../src/assets/adidas_men/image-product-4-thumbnail.jpg"
+    } 
+  ]
+}

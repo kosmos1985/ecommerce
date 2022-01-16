@@ -12,10 +12,14 @@
 <div class="container">
   <app-nav></app-nav>
     <div class="content">
-      <img src="assets/images/image-product-1-thumbnail.jpg" (click)="showGallery(index)">
-      <img src="assets/images/image-product-2-thumbnail.jpg" (click)="showGallery(index)">
-      <img src="assets/images/image-product-3-thumbnail.jpg" (click)="showGallery(index)">
-      <img src="assets/images/image-product-4-thumbnail.jpg" (click)="showGallery(index)">
-      <router-outlet></router-outlet>
+      <div class="col-4">
+        <img src="assets/images/image-product-1-thumbnail.jpg" (click)="showGallery(index)">
+        <img src="assets/images/image-product-2-thumbnail.jpg" (click)="showGallery(index)">
+        <img src="assets/images/image-product-3-thumbnail.jpg" (click)="showGallery(index)">
+        <img src="assets/images/image-product-4-thumbnail.jpg" (click)="showGallery(index)">
+      </div>
+      <div class="col-8">
+        <router-outlet></router-outlet>
+      </div>
     </div>
 </div>
