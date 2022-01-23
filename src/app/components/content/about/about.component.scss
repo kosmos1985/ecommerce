@@ -6,5 +6,15 @@
     font-size: 20px;
     padding: 3%;
     background-color: hsl(25, 100%, 94%);
-   
+}
+.map_and_logo{
+    display: flex;
+    .map{
+        width: 200px;
+        height: 200px;
+    }
+    .logo{
+        width: 200px;
+        height: 200px;
+    }
 }

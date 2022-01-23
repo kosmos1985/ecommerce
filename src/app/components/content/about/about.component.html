@@ -1,15 +1,20 @@
 <div class="container">
     <p>
-        An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ... 
-        Most importantly, it will give your customers a reason to shop from your brand
+        {{collections[0].about.desctription}}
     </p>
     <p>
-        An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ... 
-        Most importantly, it will give your customers a reason to shop from your brand
+       {{collections[0].about.desctription}}
     </p>
 
     <p>
-        An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ... 
-        Most importantly, it will give your customers a reason to shop from your brand
+       {{collections[0].about.desctription}}
     </p>
+    <div class="map_and_logo">
+        <div class="map">
+            {{collections[0].about.map.title}}
+        </div>
+        <div class="logo">
+            <img [src]="collections[0].about.logo" alt="Men shoes">
+        </div>
+    </div>
 </div>

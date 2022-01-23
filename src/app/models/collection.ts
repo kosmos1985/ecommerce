@@ -1,3 +1,6 @@
+import { About } from "./about";
+import { Contact } from "./contact";
+
 export interface Collection {
       sort(arg0: (a: Collection, b: Collection) => 0 | 1 | -1): any;
       id: number,
@@ -13,5 +16,7 @@ export interface Collection {
       small_img_1: string,
       small_img_2: string,
       small_img_3: string,
-      small_img_4: string
+      small_img_4: string,
+      about: About,
+      contact: Contact
 }
