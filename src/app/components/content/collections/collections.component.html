@@ -5,9 +5,9 @@
                 <li class="text">
                 <b>{{collection.sex}}:</b>
                 </li>
-                <li>
-                    <a routerLink="/women"><img [src]= "collection.small_img_1" alt="Women shoes"></a> 
-                </li>
+                <a [routerLink]="['/women', collection.id]"><li class="featured-img">
+                    <img [src]= "collection.small_img_1" alt="Women shoes">
+                </li></a>
                 <li class="text">
                     <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
                 </li>
@@ -19,9 +19,9 @@
                 <li class="text">
                 <b>{{collection.sex}}:</b>
                 </li>
-                <li>
-                <a routerLink="/men"><img [src]="collection.small_img_1" alt="Men shoes"></a> 
-                </li>
+                <a [routerLink]="['/men', 'collection.id']"><li class="featured-img">
+                    <img [src]="collection.small_img_1" alt="Men shoes">
+                </li></a>
                 <li class="text">
                     <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
                 </li>
