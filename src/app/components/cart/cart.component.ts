@@ -8,6 +8,7 @@ import { CollectionsService } from 'src/app/services/collections.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  
   cartItems: { item: Collection; amount: number; }[] = [];
   total:any = 0;
 

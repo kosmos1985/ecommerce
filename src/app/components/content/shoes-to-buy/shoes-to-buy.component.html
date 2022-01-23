@@ -1,6 +1,13 @@
-<div class="col-4">
-    <img src="assets/images/image-product-1-thumbnail.jpg" (click)="showGallery(index)">
-    <img src="assets/images/image-product-2-thumbnail.jpg" (click)="showGallery(index)">
-    <img src="assets/images/image-product-3-thumbnail.jpg" (click)="showGallery(index)">
-    <img src="assets/images/image-product-4-thumbnail.jpg" (click)="showGallery(index)">
-  </div>
+<div class="container">
+  <div class="col-4">
+      <img src="item" (click)="showGallery(index)">
+      <img src="item" (click)="showGallery(index)">
+      <img src="item" (click)="showGallery(index)">
+      <img src="item" (click)="showGallery(index)">
+    </div>
+    <hr>
+    <app-cart></app-cart>
+</div>
+<pre>
+  {{item | json}}
+</pre>

@@ -31,6 +31,10 @@ export class CollectionsService {
     return this.http.get<Collection>(this.BASE_URL).pipe(map(items => items.filter(item => item.sex === 'Women')));
   };
 
+  getItem(shoes: number) {
+    return this.http.get<Collection>(this.BASE_URL).pipe(filter(item => item.id === shoes));
+  }
+
    getCartItems(): Observable<{item: Collection, amount: number}[]> {
     return of(this.cartItems)
   };

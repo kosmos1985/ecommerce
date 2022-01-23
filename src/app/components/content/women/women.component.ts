@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {Gallery} from 'angular-gallery'
 import { Subscription } from 'rxjs';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
