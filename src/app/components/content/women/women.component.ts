@@ -1,31 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Gallery} from 'angular-gallery'
+import { Subscription } from 'rxjs';
+import { Collection } from 'src/app/models/collection';
+import { CollectionsService } from 'src/app/services/collections.service';
 
 @Component({
   selector: 'app-women',
   templateUrl: './women.component.html',
   styleUrls: ['./women.component.scss']
 })
-export class WomenComponent implements OnInit {
+export class WomenComponent implements OnInit, OnDestroy {
   
-  index: number = 0;
+  womenCollection : Collection []=[];
 
-  constructor(private gallery: Gallery) { }
+  private subscription = new Subscription();
+
+  constructor(private http: CollectionsService) { }
 
   ngOnInit(): void {
+    const sub = this.http.getWoenCollection().subscribe(collection => {
+      this.womenCollection = collection;
+    }, error => console.error(error),
+      () => console.log('Complite')
+    );
+    this.subscription.add(sub);
   }
 
-  showGallery(index: number) {
-    let prop = {
-        images: [
-            {path: 'assets/images/image-product-1.jpg'},
-            {path: 'assets/images/image-product-2.jpg'},
-            {path: 'assets/images/image-product-3.jpg'},
-            {path: 'assets/images/image-product-4.jpg'},
-        ],
-        index
-    };
-    this.gallery.load(prop);
-}
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }

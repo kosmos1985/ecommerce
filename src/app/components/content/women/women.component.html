@@ -1,6 +1,20 @@
-<div class="col-4">
-  <img src="assets/images/image-product-1-thumbnail.jpg" (click)="showGallery(index)">
-  <img src="assets/images/image-product-2-thumbnail.jpg" (click)="showGallery(index)">
-  <img src="assets/images/image-product-3-thumbnail.jpg" (click)="showGallery(index)">
-  <img src="assets/images/image-product-4-thumbnail.jpg" (click)="showGallery(index)">
+<div class="content">
+  <div class="container" *ngFor="let womenShoes of womenCollection">
+        <div class="women">
+            <ul>
+                <li class="text">
+                <b>{{womenShoes.sex}}:</b>
+                </li>
+                <a [routerLink]="['/women', 'womenShoes.id']"><li class="featured-img">
+                    <img [src]="womenShoes.small_img_1" alt="Women shoes">
+                </li></a>
+                <li class="text">
+                    <span>{{womenShoes.company}}</span> : <br> <span><b>{{womenShoes.price}} $</b></span>
+                </li>
+            </ul>
+        </div>
+      <hr>
+      
+  </div>
 </div>
+

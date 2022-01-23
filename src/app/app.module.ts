@@ -20,8 +20,8 @@ import { ContactComponent } from './components/content/contact/contact.component
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
-import { MenShoesToBuyComponent } from './components/content/men/men-shoes-to-buy/men-shoes-to-buy.component';
-import { WomenShoesToBuyComponent } from './components/content/women/women-shoes-to-buy/women-shoes-to-buy.component';
+import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
+
 
 
 
@@ -37,8 +37,7 @@ import { WomenShoesToBuyComponent } from './components/content/women/women-shoes
     PageNotFoundComponent,
     CartComponent,
     CartItemComponent,
-    MenShoesToBuyComponent,
-    WomenShoesToBuyComponent
+    ShoesToBuyComponent,
   ],
   imports: [
     BrowserModule,

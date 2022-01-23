@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, filter } from 'rxjs/operators';
 import { Collection } from '../models/collection';
 
 @Injectable({
@@ -20,10 +20,17 @@ export class CollectionsService {
   constructor(private http: HttpClient) { }
  
   getCollections() {
-    return this.http.get<Collection>(this.BASE_URL).pipe(map(arr => arr.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1))).pipe(tap(console.log));
+    return this.http.get<Collection>(this.BASE_URL).pipe(map(arr => arr.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
   };
 
- 
+  getMenCollection(){
+    return this.http.get<Collection>(this.BASE_URL).pipe(map(items => items.filter(item => item.sex === "Men")));
+  };
+
+  getWoenCollection(){
+    return this.http.get<Collection>(this.BASE_URL).pipe(map(items => items.filter(item => item.sex === 'Women')));
+  };
+
    getCartItems(): Observable<{item: Collection, amount: number}[]> {
     return of(this.cartItems)
   };
