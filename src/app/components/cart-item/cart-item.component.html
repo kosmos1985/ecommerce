@@ -4,6 +4,9 @@
         {{cartItem.item.company}}
         <span class="value card-panel  light-blue lighten-3">{{cartItem.item.price * cartItem.amount}} zł</span>
       </div>
+      <pre>
+        {{cartItem | json}}
+      </pre>
       <div>
         <button class="btn" (click)="decrease(cartItem)">-</button>
         <span class="amount">{{cartItem.amount}}</span>

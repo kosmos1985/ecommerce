@@ -17,7 +17,7 @@ export class WomenComponent implements OnInit, OnDestroy {
   constructor(private http: CollectionsService) { }
 
   ngOnInit(): void {
-    const sub = this.http.getWoenCollection().subscribe(collection => {
+    const sub = this.http.getWomenCollection().subscribe(collection => {
       this.womenCollection = collection;
     }, error => console.error(error),
       () => console.log('Complite')

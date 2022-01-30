@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { tap, map, filter } from 'rxjs/operators';
+import { tap, map, filter, toArray, take } from 'rxjs/operators';
 import { Collection } from '../models/collection';
 
 @Injectable({
@@ -9,38 +9,44 @@ import { Collection } from '../models/collection';
 })
 export class CollectionsService {
   
-  cartItems: {item: Collection, amount: number}[] = [];
+  cartItems: { item: Collection; amount: number; }[] = [];
   total: number = 0;
   totalAmount: number = 0;
   newTotal = new Subject();
   
 
-  BASE_URL = 'http://localhost:3000/collections';
+  BASE_URL = 'http://localhost:3000/collections/';
 
   constructor(private http: HttpClient) { }
  
   getCollections() {
-    return this.http.get<Collection>(this.BASE_URL).pipe(map(arr => arr.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
+    return  this.http.get<Collection>(this.BASE_URL).pipe(map(arr => arr.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
   };
 
   getMenCollection(){
     return this.http.get<Collection>(this.BASE_URL).pipe(map(items => items.filter(item => item.sex === "Men")));
   };
 
-  getWoenCollection(){
+  getWomenCollection(){
     return this.http.get<Collection>(this.BASE_URL).pipe(map(items => items.filter(item => item.sex === 'Women')));
   };
 
-  getItem(shoes: number) {
-    return this.http.get<Collection>(this.BASE_URL).pipe(filter(item => item.id === shoes));
+  getItem(id:number) {
+    return this.http.get<Collection>(this.BASE_URL + id);
   }
 
-   getCartItems(): Observable<{item: Collection, amount: number}[]> {
-    return of(this.cartItems)
+  CartItemsConvertType(): {item: Collection; amount: number}[]{
+    const object = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL);
+  return  Object.values(object);
+  }
+
+   getCartItems(): Observable<{item: Collection, amount: number}[]>{
+     this.cartItems = this.CartItemsConvertType()
+    return of(this.cartItems);
   };
 
   addToCart(item: Collection, amount: number) {
-    let m = this.cartItems.find((cartItem)=>{return cartItem.item == item});
+    let m = this.cartItems.find((cartItem: { item: Collection; })=>{return cartItem.item == item});
     if (m) {
       m.amount += amount;
     } else {

@@ -4,6 +4,8 @@ import { Gallery}  from 'angular-gallery';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shoes-to-buy',
@@ -12,7 +14,9 @@ import { Location } from '@angular/common';
 })
 export class ShoesToBuyComponent implements OnInit {
 
-  item!: {};
+
+  item!: Observable<Collection>;
+  
   index: number = 0;
 
   constructor(
@@ -22,9 +26,9 @@ export class ShoesToBuyComponent implements OnInit {
      private http: CollectionsService) { }
 
   ngOnInit(): void {
-    let shoes = +this.route.snapshot.paramMap.get('id');
-    this.item = this.http.getItem(shoes);
-    
+    this.item = this.route.paramMap.pipe(
+      map(params => +params.get('id')!),
+      switchMap(id => this.http.getItem(id)))
   };
 
   back() {
@@ -34,10 +38,10 @@ export class ShoesToBuyComponent implements OnInit {
   showGallery(index: number) {
     let prop = {
         images: [
-            {path: 'assets/images/image-product-1.jpg'},
-            {path: 'assets/images/image-product-2.jpg'},
-            {path: 'assets/images/image-product-3.jpg'},
-            {path: 'assets/images/image-product-4.jpg'},
+            {path: this.item.pipe(map(params=> params.large_img_1)).toString()},
+            {path: this.item.pipe(map(params=> params.large_img_2)).toString()},
+            {path: this.item.pipe(map(params=> params.large_img_3)).toString()},
+            {path: this.item.pipe(map(params=> params.large_img_4)).toString()},
         ],
         index
     };

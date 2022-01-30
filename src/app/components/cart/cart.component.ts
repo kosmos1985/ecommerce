@@ -10,7 +10,7 @@ import { CollectionsService } from 'src/app/services/collections.service';
 export class CartComponent implements OnInit {
   
   cartItems: { item: Collection; amount: number; }[] = [];
-  total:any = 0;
+  total: any = 0;
 
   constructor(private http: CollectionsService) { }
 
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     this.total = this.http.total;
     this.http.getCartItems()
       .subscribe(
-        (cartItems) => {this.cartItems = cartItems}
+        (data) => {this.cartItems = data}
     );
 
     this.http.newTotal.subscribe(

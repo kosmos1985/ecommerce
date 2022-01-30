@@ -1,13 +1,12 @@
-<div class="container">
-  <div class="col-4">
-      <img src="item" (click)="showGallery(index)">
-      <img src="item" (click)="showGallery(index)">
-      <img src="item" (click)="showGallery(index)">
-      <img src="item" (click)="showGallery(index)">
-    </div>
-    <hr>
-    <app-cart></app-cart>
-</div>
-<pre>
-  {{item | json}}
-</pre>
+<ng-container *ngIf="item | async as item">
+  <div class="container">
+    <div class="gallery">
+        <img [src]="item.small_img_1" (click)="showGallery(index)">
+        <img [src]="item.small_img_2" (click)="showGallery(index)">
+        <img [src]="item.small_img_3" (click)="showGallery(index)">
+        <img [src]="item.small_img_4" (click)="showGallery(index)">
+      </div>
+      <hr>
+      <app-cart></app-cart>
+  </div>
+</ng-container>
