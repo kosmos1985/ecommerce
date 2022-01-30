@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 
@@ -9,17 +12,26 @@ import { CollectionsService } from 'src/app/services/collections.service';
 })
 export class CartComponent implements OnInit {
   
+  item!: Observable<{ item: Collection; amount: number; }[]> ;
+  
   cartItems: { item: Collection; amount: number; }[] = [];
   total: any = 0;
 
-  constructor(private http: CollectionsService) { }
+  constructor(private http: CollectionsService, 
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {   
+    this.item = this.route.paramMap.pipe(
+      map(params => +params.get('id')!),
+      switchMap(id => this.http.getCartItems(id)));
+
     this.total = this.http.total;
-    this.http.getCartItems()
-      .subscribe(
-        (data) => {this.cartItems = data}
-    );
+    // this.http.getCartItems()
+    //   .subscribe(
+    //     (data) => {this.cartItems = data}
+        
+    // );
+    console.log(this.cartItems);
 
     this.http.newTotal.subscribe(
       (data) => {
@@ -35,3 +47,7 @@ export class CartComponent implements OnInit {
 };
 
 }
+function id(id: any) {
+  throw new Error('Function not implemented.');
+}
+

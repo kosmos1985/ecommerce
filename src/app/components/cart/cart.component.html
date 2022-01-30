@@ -1,16 +1,18 @@
-<div class="container">
-    <h3>Cart:</h3>
-      <ul >
-        <app-cart-item 
-          *ngFor="let item of cartItems"
-          [cartItem] = "item"></app-cart-item>
-      </ul>
-    <pre>
-      {{cartItems | json}}
-    </pre>
-      Total: {{ total.total }} zł
-    
-      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="printCart()">SUBMIT
-       <i class="material-icons right">send</i>
-      </button>  
-</div>
+<ng-container *ngIf="item | async as item">
+  <div class="container">
+      <h3>Cart:</h3>
+        <ul >
+          <app-cart-item 
+            *ngFor="let item of cartItems"
+            [cartItem] = "item"></app-cart-item>
+        </ul>
+      <pre>
+        {{cartItems | json}}
+      </pre>
+        Total: {{ total.total }} zł
+      
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)="printCart()">SUBMIT
+        <i class="material-icons right">send</i>
+        </button>  
+  </div>
+</ng-container>

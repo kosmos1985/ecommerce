@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { tap, map, filter, toArray, take } from 'rxjs/operators';
+import { tap, map, filter, toArray, take, shareReplay } from 'rxjs/operators';
 import { Collection } from '../models/collection';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Collection } from '../models/collection';
 })
 export class CollectionsService {
   
-  cartItems: { item: Collection; amount: number; }[] = [];
+  cartItems: Observable<{ item: Collection; amount: number; }[]> = of([]);
   total: number = 0;
   totalAmount: number = 0;
   newTotal = new Subject();
@@ -35,30 +35,34 @@ export class CollectionsService {
     return this.http.get<Collection>(this.BASE_URL + id);
   }
 
-  CartItemsConvertType(): {item: Collection; amount: number}[]{
-    const object = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL);
-  return  Object.values(object);
-  }
+  // CartItemsConvertType(): Observable<{item: Collection; amount: number}[]>{
+  //   const object = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL);
+  // return  object;
+  // }
 
-   getCartItems(): Observable<{item: Collection, amount: number}[]>{
-     this.cartItems = this.CartItemsConvertType()
-    return of(this.cartItems);
+// Object.value(object)
+
+   getCartItems(id:number): Observable<{item: Collection, amount: number}[]>{
+     this.cartItems = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL + id)
+    return this.cartItems;
   };
 
   addToCart(item: Collection, amount: number) {
-    let m = this.cartItems.find((cartItem: { item: Collection; })=>{return cartItem.item == item});
-    if (m) {
-      m.amount += amount;
-    } else {
-      this.cartItems.push({item: item, amount: amount});
-    }
+    let m = this.cartItems.pipe(map(arr=> arr.find((cartItem: { item: Collection; })=>{return cartItem.item == item})));
+    console.log(m);
+    
+    // if (m) {
+    //   m.amount += amount;
+    // } else {
+    //   this.cartItems.push({item: item, amount: amount});
+    // }
     this.recalculate();
   };
   
  recalculate() {
     let sum = 0;
     let amt = 0;
-    for (let cartItem of this.cartItems) {
+    for (let cartItem of Object.values(this.cartItems)) {
       sum += cartItem.item.price * cartItem.amount;
       amt += cartItem.amount;
     }
@@ -71,8 +75,8 @@ export class CollectionsService {
     if (item.amount > 1) {
       item.amount -= 1;
     } else if (item.amount = 1) {
-      let index = this.cartItems.indexOf(item);
-      this.cartItems.splice(index, 1);
+      let index = Object.values(this.cartItems).indexOf(item);
+      Object.values(this.cartItems).splice(index, 1);
     }
     this.recalculate();
   };
