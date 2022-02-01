@@ -30,20 +30,6 @@ export class CollectionsService {
 
   getItem(id:number) {
     return this.http.get<Collection>(this.BASE_URL + id);
-  }
-
-  // CartItemsConvertType(): Observable<{item: Collection; amount: number}[]>{
-  //   const object = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL);
-  // return  object;
-  // }
-
-// Object.value(object)
-
-  //  getCartItems(id:number): Observable<{item: Collection, amount: number}[]>{
-  //    this.cartItems = this.http.get<{item: Collection; amount: number}[]>(this.BASE_URL + id)
-  //   return this.cartItems;
-  // };
-
- 
+  }; 
 
 }

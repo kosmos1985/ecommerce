@@ -7,7 +7,7 @@ import { IvyGalleryModule } from 'angular-gallery';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
@@ -45,7 +45,7 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
     BrowserAnimationsModule,
     HttpClientModule,
     IvyGalleryModule,
-    MatListModule,
+    MatCardModule,
     MatIconModule,
     MatBadgeModule,
     MatButtonModule,

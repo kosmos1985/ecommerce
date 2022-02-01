@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Collection } from 'src/app/models/collection';
+import { Component, OnInit } from '@angular/core';
+
 import { CartService } from 'src/app/services/cart.service';
-import { CollectionsService } from 'src/app/services/collections.service';
+
 
 @Component({
   selector: 'app-cart-item',
@@ -19,29 +18,18 @@ export class CartItemComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getProducts().subscribe(data => {
-      this.cartItems = data
-    });
 
+      this.cartItems = this.cartService.cartItems;
       this.totalAmmount = this.cartService.getTotalPrice();
-  }
+  };
 
   
    removeItemFromCart(productId: number) {
-    /* this.cartItems.map((item, index) => {
-      if (item.id === productId) {
-        this.cartItems.splice(index, 1);
-      }
-    });
-
-    this.mySharedService.setProducts(this.cartItems); */
-
     this.cartService.removeProductFromCart(productId);
-
-  }
+  };
 
   emptyCart() {
     this.cartService.emptryCart();
-  }
+  };
 
 }

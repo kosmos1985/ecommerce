@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Collection } from '../models/collection';
 
 @Injectable({
@@ -16,10 +16,6 @@ export class CartService {
 
   constructor() { }
 
-  getProducts(): Observable<any> {
-    console.log('this.cartItems :', this.cartItems);
-    return this.products.asObservable();
-  };
   
   addProductToCart(product: Collection, amount: number) {
     this.cartItems.push(product);
@@ -28,7 +24,7 @@ export class CartService {
   }
 
  
-   removeProductFromCart(productId: number) {
+  removeProductFromCart(productId: number) {
     this.cartItems.map((item, index) => {
       if (item.id === productId) {
         this.cartItems.splice(index, 1);
@@ -36,18 +32,8 @@ export class CartService {
     });
 
     this.products.next(this.cartItems);
-  }
+  };
 
-  // addToCart(item: Collection, amount: number) {
-  //   let m = this.cartItems.find((cartItem)=>{return cartItem.id == item.id});
-  //   if (m) {
-  //     m.amount += amount;
-  //   } else {
-  //     this.cartItems.push({item: item, amount: amount});
-  //   }
-  //   this.recalculate();
-  // };
-  
  recalculate(amount: number) {
     let sum = 0;
     let amt = 0;
