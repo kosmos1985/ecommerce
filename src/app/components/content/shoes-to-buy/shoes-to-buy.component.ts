@@ -6,6 +6,7 @@ import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-shoes-to-buy',
@@ -16,6 +17,7 @@ export class ShoesToBuyComponent implements OnInit {
 
 
   item!: Observable<Collection>;
+  total: any = 0;
   
   index: number = 0;
 
@@ -23,12 +25,35 @@ export class ShoesToBuyComponent implements OnInit {
     private gallery: Gallery,
      private route: ActivatedRoute, 
      private location: Location,
-     private http: CollectionsService) { }
+     private collectionService: CollectionsService,
+     private cartService: CartService
+     ) { }
 
   ngOnInit(): void {
     this.item = this.route.paramMap.pipe(
       map(params => +params.get('id')!),
-      switchMap(id => this.http.getItem(id)))
+      switchMap(id => this.collectionService.getItem(id)));
+      
+      this.total = this.cartService.total;
+
+      this.cartService.newTotal.subscribe(
+        (data) => {
+          this.total = data;
+          console.log(this.total.total);
+        }
+      );
+  };
+
+  addToBasket(item: Collection,total : number) {
+    this.cartService.addProductToCart(item, total);
+  };
+
+  decrease(item : any) {
+    this.cartService.decrease(item);
+  };
+
+  increase(item: any) {
+    this.cartService.increase(item);
   };
 
   back() {
@@ -46,6 +71,10 @@ export class ShoesToBuyComponent implements OnInit {
         index
     };
     this.gallery.load(prop);
+};
+
+printCart() {
+  console.log(`Sum to be paid: ${this.total.total} zł`, this.cartService.cartItems );
 };
 
 }

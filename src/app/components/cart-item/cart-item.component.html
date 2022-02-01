@@ -1,17 +1,19 @@
-<li class="container card-panel cyan lighten-3">
-    <div>
-      <div>
-        {{cartItem}}
-        <span class="value card-panel  light-blue lighten-3">{{cartItem.item.price * cartItem.amount}} zł</span>
-      </div>
-      <pre>
-        {{cartItem | json}}
-      </pre>
-      <div>
-        <button class="btn" (click)="decrease(cartItem)">-</button>
-        <span class="amount">{{cartItem.amount}}</span>
-        <button class="btn" (click)="increase(cartItem)">+</button>
-        
-      </div>
-    </div>
-  </li>
+<div class="product-cart" *ngIf="cartItems && cartItems.length > 0">
+  <ul>
+    <li *ngFor="let item of cartItems">
+      <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
+      {{item.name}} 
+      <span>{{item.price  | currency:'INR'}}</span>
+      <button type="button" class="close" aria-label="Remove Item" (click)="removeItemFromCart(item.id)">
+        <span aria-hidden="true">&times;</span>
+      </button>        
+    </li>
+  </ul>
+  <div class="cart-total">
+    <p><button type="button" class="btn btn-outline-primary btn-sm" (click)="emptyCart()">Empty Cart</button></p>
+    <p class="text-right">
+      <strong class="d-block">Total:</strong>
+      <span class="d-block">{{totalAmmount | currency:'INR'}}</span>
+    </p>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<ng-container *ngIf="item | async as item">
+<ng-container *ngIf="item | async as item; else spinner">
   <div class="container">
     <div class="gallery">
         <img [src]="item.small_img_1" (click)="showGallery(index)">
@@ -7,6 +7,39 @@
         <img [src]="item.small_img_4" (click)="showGallery(index)">
       </div>
       <hr>
-      <app-cart></app-cart>
+        <div class="cart">
+          <div class="desctription">
+            <h3>{{item.company}}</h3> 
+            
+              <p>{{item.description}}}</p>
+                  
+              <span>{{item.price }} zł</span>
+              
+                  <button mat-stroked-button  (click)="decrease(item)">
+                    <mat-icon aria-hidden="false">remove</mat-icon>
+                  </button>
+                  
+                  <!-- <span class="amount">{{cartItem.amount}}</span> -->
+                  <button mat-stroked-button  (click)="increase(item)">
+                    <mat-icon aria-hidden="false">add</mat-icon>
+                  </button>
+
+                  Total: {{ total.total }} zł
+            
+                  <button mat-stroked-button id="add" type="submit" name="action" (click)="addToBasket(item, total); printCart()">Add to cart
+                    <mat-icon >shopping_cart</mat-icon>
+                  </button>  
+          </div> 
+            
+        </div>
+     
   </div>
 </ng-container>
+<ng-template #spinner>
+  <div class="loading">
+    products loading...
+  </div>
+</ng-template>
+  <!-- <pre>
+        {{item | json}}
+      </pre> -->

@@ -7,6 +7,8 @@ import { IvyGalleryModule } from 'angular-gallery';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav/nav.component';
@@ -18,7 +20,6 @@ import { AboutComponent } from './components/content/about/about.component';
 import { ContactComponent } from './components/content/contact/contact.component';
 
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
-import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
 
@@ -35,7 +36,6 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
     AboutComponent,
     ContactComponent,
     PageNotFoundComponent,
-    CartComponent,
     CartItemComponent,
     ShoesToBuyComponent,
   ],
@@ -45,8 +45,10 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
     BrowserAnimationsModule,
     HttpClientModule,
     IvyGalleryModule,
+    MatListModule,
     MatIconModule,
     MatBadgeModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

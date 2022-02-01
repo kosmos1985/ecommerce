@@ -3,3 +3,23 @@
     width: 80%;
     margin-left: 20%;
 }
+.desctription{
+    text-align: center;
+}
+h3{
+    color: hsl(26, 100%, 55%);
+    text-transform: uppercase;
+}
+p{
+    width: 50%;
+    margin-left: 25%;
+}
+#add{
+    background-color: hsl(26, 100%, 55%);
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 50px;
+  }

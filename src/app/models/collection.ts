@@ -2,6 +2,7 @@ import { About } from "./about";
 import { Contact } from "./contact";
 
 export interface Collection {
+      
       filter(arg0: (item: { sex: string; }) => boolean): any;
       sort(arg0: (a: Collection, b: Collection) => 0 | 1 | -1): any;
       id: number,
