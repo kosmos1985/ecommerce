@@ -1,5 +1,11 @@
 <div class="product-cart" *ngIf="cartItems && cartItems.length > 0">
-  <button mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button> 
+  <div class="total">
+    <button mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button> 
+    <p>
+      <strong class="d-block">Total:</strong>
+      <span class="d-block">{{totalAmount | currency}}</span>
+    </p>
+</div>
   <mat-card class="card" *ngFor="let item of cartItems">
     <mat-card-title-group>
       <mat-card-title>{{item.company}}</mat-card-title>
@@ -9,13 +15,9 @@
     <mat-card-content>
       <p>{{item.description}}</p>
       <p>{{item.price  | currency}}</p>
-      <button mat-stroked-button color="warn" (click)="removeItemFromCart(item.id)">
+      <button mat-stroked-button color="warn" (click)="removeItemFromCart(totalAmount)">
         <mat-icon aria-hidden="false">remove</mat-icon>
       </button>
-        <p class="text-right">
-          <strong class="d-block">Total:</strong>
-          <span class="d-block">{{totalAmmount | currency}}</span>
-        </p>
     </mat-card-content>
   </mat-card>
 </div>

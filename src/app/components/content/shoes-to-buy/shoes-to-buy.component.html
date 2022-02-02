@@ -13,18 +13,24 @@
             
               <p>{{item.description}}}</p>
                   
-              <span>{{item.price }} zł</span>
+              <p><strong>Price:</strong> {{item.price }} $</p>
               
                   <button mat-stroked-button  (click)="decrease(item)">
                     <mat-icon aria-hidden="false">remove</mat-icon>
-                  </button>                
-                  <button mat-stroked-button  (click)="increase(item)">
+                  </button>  
+                  <span class="value">
+                    <input  [value]="cartItems.length"> 
+                  </span> 
+                  <button mat-stroked-button  (click)="addToBasket(item, totalAmount)">
                     <mat-icon aria-hidden="false">add</mat-icon>
                   </button>
 
-                  Total: {{ total.total }} zł
+                  <p>
+                    <strong class="d-block">Total:</strong>
+                    <span class="d-block">{{totalAmount | currency}}</span>
+                  </p> 
             
-                  <button mat-stroked-button id="add" type="submit" name="action" (click)="addToBasket(item, item.price); printCart()">Add to cart
+                  <button mat-stroked-button id="add" type="submit" name="action" (click)="addToBasket(item, totalAmount); printCart()">Add to cart
                     <mat-icon >shopping_cart</mat-icon>
                   </button>  
           </div> 

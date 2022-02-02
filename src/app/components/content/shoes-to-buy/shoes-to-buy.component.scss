@@ -5,6 +5,10 @@
 }
 .desctription{
     text-align: center;
+    input{
+        width: 80px;
+        height: 30px;
+    }
 }
 h3{
     color: hsl(26, 100%, 55%);
@@ -13,6 +17,10 @@ h3{
 p{
     width: 50%;
     margin-left: 25%;
+    .d-block{
+        padding: 2%;
+        margin-top: 2%;
+    }
 }
 #add{
     background-color: hsl(26, 100%, 55%);

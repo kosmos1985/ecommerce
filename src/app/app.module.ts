@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav/nav.component';
@@ -49,6 +50,7 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
     MatIconModule,
     MatBadgeModule,
     MatButtonModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

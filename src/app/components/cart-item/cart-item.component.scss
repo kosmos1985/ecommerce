@@ -1,5 +1,13 @@
 .product-cart{
-    width: 80%;
+    width: 50%;
+    margin-left: auto;
+}
+.total{
+    display: flex;
+    p{
+        margin-left: 15%;
+        font-size: large;
+    }
 }
 .card {
     max-width: 400px;
@@ -8,4 +16,8 @@
 img{
     width: 176px;
     height: 176px;
+}
+.d-block{
+    padding: 2%;
+    margin-top: 2%;
 }

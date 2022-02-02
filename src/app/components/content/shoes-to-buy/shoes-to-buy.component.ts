@@ -15,9 +15,9 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ShoesToBuyComponent implements OnInit {
 
-
+  cartItems!: Collection[];
   item!: Observable<Collection>;
-  total: any = 0;
+  totalAmount!: number;
   
   index: number = 0;
 
@@ -33,19 +33,12 @@ export class ShoesToBuyComponent implements OnInit {
     this.item = this.route.paramMap.pipe(
       map(params => +params.get('id')!),
       switchMap(id => this.collectionService.getItem(id)));
-      
-      this.total = this.cartService.total;
-
-      this.cartService.newTotal.subscribe(
-        (data) => {
-          this.total = data;
-          console.log(this.total.total);
-        }
-      );
+      this.cartItems = this.cartService.cartItems; 
   };
 
   addToBasket(item: Collection,total : number) {
     this.cartService.addProductToCart(item, total);
+    this.totalAmount = this.cartService.getTotalPrice();
   };
 
   decrease(item : any) {
@@ -63,10 +56,10 @@ export class ShoesToBuyComponent implements OnInit {
   showGallery(index: number) {
     let prop = {
         images: [
-            {path: this.item.pipe(map(params=> params.large_img_1)).toString()},
-            {path: this.item.pipe(map(params=> params.large_img_2)).toString()},
-            {path: this.item.pipe(map(params=> params.large_img_3)).toString()},
-            {path: this.item.pipe(map(params=> params.large_img_4)).toString()},
+            {path: `${this.item.pipe(map(params=> params.large_img_1)).toString()}`},
+            {path: `${this.item.pipe(map(params=> params.large_img_2)).toString()}`},
+            {path: `${this.item.pipe(map(params=> params.large_img_3)).toString()}`},
+            {path: `${this.item.pipe(map(params=> params.large_img_4)).toString()}`},
         ],
         index
     };
@@ -74,7 +67,7 @@ export class ShoesToBuyComponent implements OnInit {
 };
 
 printCart() {
-  console.log(`Sum to be paid: ${this.total.total} zł`, this.cartService.cartItems );
+  console.log(`Sum to be paid: ${this.totalAmount} zł`, this.cartService.cartItems );
 };
 
 }
