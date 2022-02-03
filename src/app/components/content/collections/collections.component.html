@@ -1,31 +1,34 @@
 <div class="content">
     <div class="container" *ngFor="let collection of collections">
         <div class="women" *ngIf="collection.sex === 'Women'">
-            <ul>
-                <li class="text">
-                <b>{{collection.sex}}:</b>
-                </li>
-                <a [routerLink]="['/women', collection.id]"><li class="featured-img">
-                    <img [src]= "collection.small_img_1" alt="Women shoes">
-                </li></a>
-                <li class="text">
-                    <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
-                </li>
-            </ul>
+            <a class="featured-img" [routerLink]="['/women', collection.id]">
+                <mat-card class="card">
+                <mat-card-title-group>
+                    <mat-card-title>{{collection.sex}}</mat-card-title>
+                    <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
+                    <img mat-card-sm-image  [src]="collection.small_img_1" >
+                </mat-card-title-group>
+                <mat-card-content>
+                    <p>{{collection.price  | currency}}</p>
+                </mat-card-content>
+                </mat-card>
+            </a>
         </div>
         <hr>
         <div class="men" *ngIf="collection.sex === 'Men'">
-            <ul>
-                <li class="text">
-                <b>{{collection.sex}}:</b>
-                </li>
-                <a [routerLink]="['/men', collection.id]"><li class="featured-img">
-                    <img [src]="collection.small_img_1" alt="Men shoes">
-                </li></a>
-                <li class="text">
-                    <span>{{collection.company}}</span> : <br> <span><b>{{collection.price}} $</b></span>
-                </li>
-            </ul>
+            <a class="featured-img" [routerLink]="['/men', collection.id]">
+                <mat-card class="card">
+                <mat-card-title-group>
+                    <mat-card-title>{{collection.sex}}</mat-card-title>
+                    <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
+                    <img mat-card-sm-image  [src]="collection.small_img_1" >
+                </mat-card-title-group>
+                <mat-card-content>
+                    <p>{{collection.price  | currency}}</p>
+                </mat-card-content>
+                </mat-card>
+            </a>
         </div>
     </div>
 </div>
+

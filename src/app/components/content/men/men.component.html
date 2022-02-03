@@ -2,14 +2,17 @@
   <div class="container" *ngFor="let menShoes of menCollection; let i = index" >
         <div class="men">
             <hr>
-            <ul>
-                <a [routerLink]="['/men', menShoes.id]"><li>
-                    <img [src]="menShoes.small_img_1" alt="Men shoes">
-                </li></a>
-                <li class="text">
-                    <span>{{menShoes.company}}</span> : <br> <span><b>{{menShoes.price}} $</b></span>
-                </li>
-            </ul>
+                <a [routerLink]="['/men', menShoes.id]">
+                    <mat-card class="card">
+                        <mat-card-title-group>
+                            <mat-card-title>{{menShoes.company}}</mat-card-title>
+                        </mat-card-title-group>
+                        <mat-card-content>
+                            <img mat-card-sm-image  [src]="menShoes.small_img_1">
+                            <p>{{menShoes.price  | currency}}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </a>
             <hr>
         </div>
   </div>
