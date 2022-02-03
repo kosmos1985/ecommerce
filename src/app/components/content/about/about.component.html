@@ -1,22 +1,15 @@
 <div class="container">
-    <div *ngIf="collections[0].about !== undefined">
+    <div *ngIf="about">
         <p>
-            {{collections[0].about.desctription}}
-        </p>
-        <p>
-        {{collections[0].about.desctription}}
-        </p>
-
-        <p>
-        {{collections[0].about.desctription}}
+            {{about.desctription}}
         </p>
     </div>
-    <div class="map_and_logo">
+    <div *ngIf="map" class="map_and_logo">
         <div class="map">
-            {{collections[0].about.map.title}}
+            {{map.title}}
         </div>
         <div class="logo">
-            <img [src]="collections[0].about.logo" alt="Men shoes">
+            <img [src]="about.logo" alt="Men shoes">
         </div>
     </div>
 </div>

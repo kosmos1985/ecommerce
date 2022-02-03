@@ -1,9 +1,5 @@
 export interface About {
+ id:  number,
  desctription: string,
  logo: string,
-    map:{
-        title: string,
-        lat: number,
-        lng: number
-    }
 }

@@ -65,25 +65,22 @@
       "small_img_4": "assets/adidas_men/image-product-4-thumbnail.jpg"
     },
     {
-      "about":  
-      {
-        "desctription": "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand.",
-        "logo":"assets/icons/ecommerce-thumbnail.png",
-        "map":{
-          "title": "We are here!",
-          "lat": 51.678418,
-          "lng": 7.809007
-        }
-      }
+       "id": 5,
+       "desctription": "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand.",
+       "logo":"assets/icons/ecommerce-thumbnail.png"
     },
     {
-      "contact": 
-        {
-          "name": "",
-          "email": "",
-          "contact_no": "",
-          "message": ""
-        }
+      "id": 6,
+      "title": "We are here!",
+      "lat": 51.678418,
+      "lng": 7.809007
+    },
+    {
+      "id": 7,
+      "name": "",
+      "email": "",
+      "contact_no": "",
+      "message": ""
     }
   ]
 }

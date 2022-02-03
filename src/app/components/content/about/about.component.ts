@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Collection } from 'src/app/models/collection';
+import { About } from 'src/app/models/about';
+import { Map } from 'src/app/models/map';
 import { CollectionsService } from 'src/app/services/collections.service';
 
 @Component({
@@ -10,19 +11,30 @@ import { CollectionsService } from 'src/app/services/collections.service';
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
-  collections: Collection[] = [];
+  about!: About;
+  map!: Map;
   
   private subscription = new Subscription();
 
   constructor(private http: CollectionsService) { }
 
   ngOnInit(): void {
-    const sub = this.http.getCollections().subscribe(collections => {
-      this.collections = collections;
+    
+    const subAbout = this.http.getAbout().subscribe(aboutParams => {
+      this.about = aboutParams;
     }, error => console.error(error),
-      () => console.log('Complite')
+      () => console.log('Complite', this.about)
     );
-    this.subscription.add(sub);
+
+    const subMap = this.http.getMap().subscribe(mapParams => {
+      this.map = mapParams;
+    }, error => console.error(error),
+      () => console.log('Complite', this.map)
+    );
+
+    this.subscription.add(subAbout);
+    this.subscription.add(subMap);
+    
   }
 
   ngOnDestroy() {

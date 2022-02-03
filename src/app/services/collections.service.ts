@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { tap, map, filter, toArray, take, shareReplay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { About } from '../models/about';
 import { Collection } from '../models/collection';
+import { Map } from '../models/map';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class CollectionsService {
   
 
   BASE_URL = 'http://localhost:3000/collections/';
+
 
   constructor(private http: HttpClient) { }
  
@@ -30,6 +32,14 @@ export class CollectionsService {
 
   getItem(id:number) {
     return this.http.get<Collection>(this.BASE_URL + id);
-  }; 
+  };
+  
+  getAbout(){
+    return this.http.get<About>(this.BASE_URL + 5);
+  };
+
+  getMap(){
+    return this.http.get<Map>(this.BASE_URL + 6);
+  };
 
 }
