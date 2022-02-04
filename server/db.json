@@ -6,7 +6,7 @@
       "title": "Fall limited snakers",
       "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
       "price": 250,
-      "sex":"Women",
+      "sex": "Women",
       "large_img_1": "assets/snakers_women/image-product-1.jpg",
       "large_img_2": "assets/snakers_women/image-product-2.jpg",
       "large_img_3": "assets/snakers_women/image-product-3.jpg",
@@ -22,7 +22,7 @@
       "title": "For women loving sport",
       "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
       "price": 340,
-      "sex":"Women",
+      "sex": "Women",
       "large_img_1": "assets/adidas_women/image-product-1.jpg",
       "large_img_2": "assets/adidas_women/image-product-2.jpg",
       "large_img_3": "assets/adidas_women/image-product-3.jpg",
@@ -38,7 +38,7 @@
       "title": "For creating men",
       "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
       "price": 340,
-      "sex":"Men",
+      "sex": "Men",
       "large_img_1": "assets/snakers_men/image-product-1.jpg",
       "large_img_2": "assets/snakers_men/image-product-2.jpg",
       "large_img_3": "assets/snakers_men/image-product-3.jpg",
@@ -54,7 +54,7 @@
       "title": "For men loving sport",
       "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
       "price": 190,
-      "sex":"Men",
+      "sex": "Men",
       "large_img_1": "assets/adidas_men/image-product-1.jpg",
       "large_img_2": "assets/adidas_men/image-product-2.jpg",
       "large_img_3": "assets/adidas_men/image-product-3.jpg",
@@ -65,9 +65,9 @@
       "small_img_4": "assets/adidas_men/image-product-4-thumbnail.jpg"
     },
     {
-       "id": 5,
-       "desctription": "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand.",
-       "logo":"assets/icons/ecommerce-thumbnail.png"
+      "id": 5,
+      "desctription": "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand.",
+      "logo": "assets/icons/ecommerce-thumbnail.png"
     },
     {
       "id": 6,
@@ -84,8 +84,3 @@
     }
   ]
 }
-
-
-
-
-
