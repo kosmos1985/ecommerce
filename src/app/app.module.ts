@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule } from '@angular/common/http';
 import { IvyGalleryModule } from 'angular-gallery';
 
@@ -42,6 +43,9 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
   ],
   imports: [
     BrowserModule,
+      AgmCoreModule.forRoot({
+  apiKey: 'AIzaSyBlfYV2V0c5mjMltRS9iZb71M6Z-qGVaIo'
+}),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -56,3 +60,4 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

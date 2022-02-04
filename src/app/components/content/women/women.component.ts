@@ -20,7 +20,6 @@ export class WomenComponent implements OnInit, OnDestroy {
     const sub = this.http.getWomenCollection().subscribe(collection => {
       this.womenCollection = collection;
     }, error => console.error(error),
-      () => console.log('Complite')
     );
     this.subscription.add(sub);
   }

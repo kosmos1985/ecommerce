@@ -22,7 +22,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
     const sub = this.http.getCollections().subscribe(collections => {
       this.collections = collections;
     }, error => console.error(error),
-      () => console.log('Complite')
     );
     this.subscription.add(sub);
   }

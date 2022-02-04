@@ -1,15 +1,16 @@
-<div class="container">
-    <div *ngIf="about">
-        <p>
-            {{about.desctription}}
-        </p>
-    </div>
-    <div *ngIf="map" class="map_and_logo">
-        <div class="map">
-            {{map.title}}
-        </div>
-        <div class="logo">
-            <img [src]="about.logo" alt="Men shoes">
-        </div>
-    </div>
+<div class="container" *ngIf="about && map">
+    <mat-card class="card">
+        <hr>
+            <mat-card-title-group>
+                <mat-card-title>{{about.desctription}}</mat-card-title>
+            </mat-card-title-group>
+            <mat-card-content>
+                <p>{{map.title}}</p>
+                <agm-map [latitude]="map.lat" [longitude]="map.lng">
+                    <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
+                  </agm-map>
+                <img mat-card-sm-image  [src]="about.logo" alt="Logo">
+            </mat-card-content>
+        </mat-card>
+    <hr>
 </div>

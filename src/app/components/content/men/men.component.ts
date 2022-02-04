@@ -21,7 +21,6 @@ export class MenComponent implements OnInit, OnDestroy {
     const sub = this.http.getMenCollection().subscribe(collection => {
       this.menCollection = collection;
     }, error => console.error(error),
-      () => console.log('Complite', this.menCollection)
     );
     this.subscription.add(sub);
   }
