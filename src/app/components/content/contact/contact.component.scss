@@ -149,7 +149,6 @@
     border-bottom: 1px solid #666;
     color: #ddd;
     font-size: 14px;
-    text-transform: uppercase;
     outline: none;
     transition: border-color .2s;
   }
@@ -175,6 +174,18 @@
     color: hsl(26, 100%, 55%);
   }
   
+  form .ng-invalid.ng-touched,
+  form .ng-invalid.ng-dirty
+  {
+    border: 2px solid red !important;
+  }
+
+  form .ng-invalid.ng-toched ~ .validation-feedback,
+  form .ng-invalid ~ .validation-feedback
+  {
+    color: red;
+  }
+
   .credits {
     display: flex;
     justify-content: center;

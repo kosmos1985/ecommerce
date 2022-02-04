@@ -24,6 +24,7 @@ import { ContactComponent } from './components/content/contact/contact.component
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -49,6 +50,7 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     IvyGalleryModule,
     MatCardModule,
     MatIconModule,
