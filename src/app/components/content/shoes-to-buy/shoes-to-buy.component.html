@@ -1,6 +1,6 @@
 <ng-container *ngIf="item | async as item; else spinner">
   <div class="container">
-    <div class="gallery">
+    <div class="gallery" >
         <img [src]="item.small_img_1" (click)="showGallery(index)">
         <img [src]="item.small_img_2" (click)="showGallery(index)">
         <img [src]="item.small_img_3" (click)="showGallery(index)">

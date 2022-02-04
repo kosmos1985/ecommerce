@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Gallery}  from 'angular-gallery';
 import { Collection } from 'src/app/models/collection';
@@ -15,9 +15,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ShoesToBuyComponent implements OnInit {
 
+
   cartItems!: Collection[];
   item!: Observable<Collection>;
   totalAmount!: number;
+  large_img_1!: string | null;
   
   index: number = 0;
 
@@ -56,10 +58,10 @@ export class ShoesToBuyComponent implements OnInit {
   showGallery(index: number) {
     let prop = {
         images: [
-            {path: `${this.item.pipe(map(params=> params.large_img_1)).toString()}`},
-            {path: `${this.item.pipe(map(params=> params.large_img_2)).toString()}`},
-            {path: `${this.item.pipe(map(params=> params.large_img_3)).toString()}`},
-            {path: `${this.item.pipe(map(params=> params.large_img_4)).toString()}`},
+            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
+            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
+            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
+            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
         ],
         index
     };
@@ -67,7 +69,7 @@ export class ShoesToBuyComponent implements OnInit {
 };
 
 printCart() {
-  console.log(`Sum to be paid: ${this.totalAmount} zł`, this.cartService.cartItems );
+  console.log(`${this.cartItems.find(id=>id.id)}`);
 };
 
 }
