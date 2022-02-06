@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartItemComponent } from './components/content/cart-item/cart-item.component';
 import { AboutComponent } from './components/content/about/about.component';
 import { CollectionsComponent } from './components/content/collections/collections.component';
 import { ContactComponent } from './components/content/contact/contact.component';
