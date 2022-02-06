@@ -5,7 +5,7 @@ import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -19,7 +19,10 @@ export class ShoesToBuyComponent implements OnInit {
   cartItems!: Collection[];
   item!: Observable<Collection>;
   totalAmount!: number;
-  large_img_1!: string | null;
+  img_path1!: string;
+  img_path2!: string;
+  img_path3!: string;
+  img_path4!: string;
   
   index: number = 0;
 
@@ -36,6 +39,10 @@ export class ShoesToBuyComponent implements OnInit {
       map(params => +params.get('id')!),
       switchMap(id => this.collectionService.getItem(id)));
       this.cartItems = this.cartService.cartItems; 
+      this.getStringValueFromObservableForFirstImage();
+      this.getStringValueFromObservableForSecondtImage();
+      this.getStringValueFromObservableForThirdtImage();
+      this.getStringValueFromObservableForFourthtImage();
   };
 
   addToBasket(item: Collection,total : number) {
@@ -55,21 +62,49 @@ export class ShoesToBuyComponent implements OnInit {
     this.location.back();
   };
 
+  getStringValueFromObservableForFirstImage(){
+    this.item.pipe(take(1)).
+    subscribe(img_path=> {
+      this.img_path1 = img_path.large_img_1;
+      console.log(this.img_path1);
+      
+    });
+    
+  };
+  
+  getStringValueFromObservableForSecondtImage(){
+    this.item.pipe(take(1)).
+    subscribe(img_path=> {
+      this.img_path2 = img_path.large_img_2;
+      console.log(this.img_path2);
+    })
+  };
+  
+  getStringValueFromObservableForThirdtImage(){
+    this.item.pipe(take(1)).
+    subscribe(img_path=> {
+      this.img_path3 = img_path.large_img_3
+    })
+  };
+  
+  getStringValueFromObservableForFourthtImage(){
+    this.item.pipe(take(1)).
+    subscribe(img_path=> {
+      this.img_path4 = img_path.large_img_4
+    })
+  };
+
   showGallery(index: number) {
     let prop = {
         images: [
-            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
-            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
-            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
-            {path: `${this.cartItems.filter(index=>index.large_img_1 === 'assets/adidas_men/image-product-1.jpg')}`},
+            {path: `${this.img_path1}`},
+            {path: `${this.img_path2}`},
+            {path: `${this.img_path3}`},
+            {path: `${this.img_path4}`},
         ],
         index
     };
     this.gallery.load(prop);
-};
-
-printCart() {
-  console.log(`${this.cartItems.find(id=>id.id)}`);
 };
 
 }

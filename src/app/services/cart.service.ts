@@ -70,11 +70,11 @@ export class CartService {
     item.amount += 1;
     // this.recalculate(this.totalAmount);
   };
+
   emptryCart() {
     this.cartItems.length = 0;
     this.products.next(this.cartItems);
   }
-
 
   getTotalPrice() {
     let total = 0;
