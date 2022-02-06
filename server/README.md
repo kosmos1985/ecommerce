@@ -1,14 +1,12 @@
-# Prosta nierelacyjna baza danych w pliku json
+# Simple non-relational database in json file
 
-# Uruchomienie
-- pobierz, rozpakuj i uruchom `npm install`
-- wykonaj polecenie `npm start`
-- serwer uruchamia się na http://localhost:3000
+# Activation
+- download, unpack and run `npm install`
+- execute the command `npm start`
+- the server starts at http: // localhost: 3000
 
-# Dostępne endpointy
-http://localhost:3000/collections
+# Endpoints available
+http: // localhost: 3000 / collections
 
-ht
-
-# Korzystam z:
+# I use:
 https://github.com/typicode/json-server

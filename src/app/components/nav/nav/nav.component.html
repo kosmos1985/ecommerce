@@ -6,7 +6,21 @@
     <li><a routerLink="/contact">Contact</a></li>
     <li>
         <a routerLink="/cartItem">
-            <mat-icon [matBadge]="cartItems.length" matBadgeColor="warn">shopping_cart</mat-icon>
+            <mat-icon 
+                [matBadge]="cartItems.length" 
+                matBadgeColor="warn"
+                >shopping_cart
+            </mat-icon>
         </a>
+    </li>
+    <li>
+        <button mat-button [matMenuTriggerFor]="menu">
+            <img src="../../../../assets/icons/image-avatar.png" alt="Avatar">
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>User Profile</button>
+            <button mat-menu-item>Your discounts</button>
+            <button mat-menu-item>Log out</button>
+        </mat-menu>
     </li>
 </ul>

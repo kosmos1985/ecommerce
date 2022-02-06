@@ -8,8 +8,9 @@ import { IvyGalleryModule } from 'angular-gallery';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppComponent } from './app.component';
@@ -56,6 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatBadgeModule,
     MatButtonModule,
+    MatMenuModule,
     LayoutModule,
   ],
   providers: [],
