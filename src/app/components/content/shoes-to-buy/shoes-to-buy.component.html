@@ -10,12 +10,9 @@
         <div class="cart">
           <div class="desctription">
             <h3>{{item.company}}</h3> 
-            
-              <p>{{item.description}}}</p>
-                  
+              <p>{{item.description}}}</p>  
               <p><strong>Price:</strong> {{item.price }} $</p>
-              
-                  <button mat-stroked-button  (click)="decrease(item)">
+                  <button mat-stroked-button  (click)="decrease(item, totalAmount)">
                     <mat-icon aria-hidden="false">remove</mat-icon>
                   </button>  
                   <span class="value">
@@ -24,19 +21,15 @@
                   <button mat-stroked-button  (click)="addToBasket(item, totalAmount)">
                     <mat-icon aria-hidden="false">add</mat-icon>
                   </button>
-
                   <p>
                     <strong class="d-block">Total:</strong>
                     <span class="d-block">{{totalAmount | currency}}</span>
                   </p> 
-            
                   <button mat-stroked-button id="add" type="submit" name="action" (click)="addToBasket(item, totalAmount)">Add to cart
                     <mat-icon >shopping_cart</mat-icon>
                   </button>  
           </div> 
-            
         </div>
-     
   </div>
 </ng-container>
 <ng-template #spinner>

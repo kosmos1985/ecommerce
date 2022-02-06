@@ -23,10 +23,10 @@ export class MenComponent implements OnInit, OnDestroy {
     }, error => console.error(error),
     );
     this.subscription.add(sub);
-  }
+  };
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
+  };
 
 }

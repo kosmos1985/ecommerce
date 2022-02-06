@@ -140,7 +140,6 @@
     margin-bottom: 0;
     text-align: right;
   }
-  
   .app-form-control {
     width: 100%;
     padding: 10px 0;
@@ -152,15 +151,12 @@
     outline: none;
     transition: border-color .2s;
   }
-  
   .app-form-control::placeholder {
     color: #666;
   }
-  
   .app-form-control:focus {
     border-bottom-color: #ddd;
   }
-  
   .app-form-button {
     background: none;
     border: none;
@@ -169,23 +165,19 @@
     cursor: pointer;
     outline: none;
   }
-  
   .app-form-button:hover {
     color: hsl(26, 100%, 55%);
   }
-  
   form .ng-invalid.ng-touched,
   form .ng-invalid.ng-dirty
   {
     border: 2px solid red !important;
   }
-
   form .ng-invalid.ng-toched ~ .validation-feedback,
   form .ng-invalid ~ .validation-feedback
   {
     color: red;
   }
-
   .credits {
     display: flex;
     justify-content: center;
@@ -196,7 +188,6 @@
     font-size: 16px;
     font-weight: normal;
   }
-  
   .credits-link {
     display: flex;
     align-items: center;
@@ -204,7 +195,6 @@
     font-weight: bold;
     text-decoration: none;
   }
-  
   .dribbble {
     width: 20px;
     height: 20px;
@@ -215,19 +205,15 @@
     .screen-body {
       flex-direction: column;
     }
-  
     .screen-body-item.left {
       margin-bottom: 30px;
     }
-  
     .app-title {
       flex-direction: row;
     }
-  
     .app-title span {
       margin-right: 12px;
     }
-  
     .app-title:after {
       display: none;
     }
@@ -237,7 +223,6 @@
     .screen-body {
       padding: 40px;
     }
-  
     .screen-body-item {
       padding: 0;
     }

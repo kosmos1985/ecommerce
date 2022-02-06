@@ -16,14 +16,12 @@ export class CartService {
 
   constructor() { }
 
-  
   addProductToCart(product: Collection, amount: number) {
     this.cartItems.push(product);
     this.products.next(this.cartItems);
     this.recalculateUp(amount);
-  }
+  };
 
- 
   removeProductFromCart( total: number) {
     this.cartItems.pop();      
     this.products.next(this.cartItems);
@@ -56,34 +54,27 @@ export class CartService {
     this.newTotal.next({total: this.total, amount: this.totalAmount});
   };
 
-  decrease(item: any) {
+  decrease(item: any, total: number) {
     if (item.amount > 1) {
       item.amount -= 1;
     } else if (item.amount = 1) {
       let index = this.cartItems.indexOf(item);
       this.cartItems.splice(index, 1);
     }
-    this.recalculateUp(this.totalAmount);
-  };
-
-  increase(item: any) {
-    item.amount += 1;
-    // this.recalculate(this.totalAmount);
+    this.recalculateDown(total);
   };
 
   emptryCart() {
     this.cartItems.length = 0;
     this.products.next(this.cartItems);
-  }
+  };
 
   getTotalPrice() {
     let total = 0;
-
     this.cartItems.map(item => {
       total += item.price;
     });
-
     return total
-  }
+  };
   
 }

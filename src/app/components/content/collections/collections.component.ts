@@ -12,7 +12,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
 
   collections: Collection[] = [];
   
- 
   private subscription = new Subscription();
  
 
@@ -24,7 +23,7 @@ export class CollectionsComponent implements OnInit, OnDestroy {
     }, error => console.error(error),
     );
     this.subscription.add(sub);
-  }
+  };
   
   ngOnDestroy() {
     this.subscription.unsubscribe();

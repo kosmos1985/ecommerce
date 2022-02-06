@@ -15,6 +15,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems = this.cartService.cartItems;     
-  }
+  };
 
 }

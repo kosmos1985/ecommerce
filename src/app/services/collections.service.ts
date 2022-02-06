@@ -12,9 +12,6 @@ import { Map } from '../models/map';
 })
 export class CollectionsService {
   
-
-  
-
   BASE_URL = 'http://localhost:3000/collections/';
 
 
@@ -45,7 +42,7 @@ export class CollectionsService {
   };
 
   putContactData(contactData: Contact): Observable<Contact>{
-    return this.http.put<Contact>(this.BASE_URL + '/' +  contactData.id, contactData)
-  }
+    return this.http.put<Contact>(this.BASE_URL + '/' +  contactData.id, contactData);
+  };
 
 }

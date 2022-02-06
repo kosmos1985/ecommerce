@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Gallery}  from 'angular-gallery';
 import { Collection } from 'src/app/models/collection';
@@ -45,17 +45,14 @@ export class ShoesToBuyComponent implements OnInit {
       this.getStringValueFromObservableForFourthtImage();
   };
 
-  addToBasket(item: Collection,total : number) {
+  addToBasket(item: Collection, total : number) {
     this.cartService.addProductToCart(item, total);
     this.totalAmount = this.cartService.getTotalPrice();
   };
 
-  decrease(item : any) {
-    this.cartService.decrease(item);
-  };
-
-  increase(item: any) {
-    this.cartService.increase(item);
+  decrease(item : Collection, total : number) {
+    this.cartService.decrease(item, total);
+    this.totalAmount = this.cartService.getTotalPrice();
   };
 
   back() {
@@ -65,9 +62,7 @@ export class ShoesToBuyComponent implements OnInit {
   getStringValueFromObservableForFirstImage(){
     this.item.pipe(take(1)).
     subscribe(img_path=> {
-      this.img_path1 = img_path.large_img_1;
-      console.log(this.img_path1);
-      
+      this.img_path1 = img_path.large_img_1; 
     });
     
   };
@@ -76,7 +71,6 @@ export class ShoesToBuyComponent implements OnInit {
     this.item.pipe(take(1)).
     subscribe(img_path=> {
       this.img_path2 = img_path.large_img_2;
-      console.log(this.img_path2);
     })
   };
   

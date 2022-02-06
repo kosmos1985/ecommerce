@@ -50,11 +50,11 @@ export class AppComponent implements OnInit, OnDestroy{
         date: new Date().toDateString()
       };
     }, 500);
-  }
+  };
 
   ngOnDestroy() {
     this.destroyed.next();
     this.destroyed.complete();
-  }
+  };
   
 }

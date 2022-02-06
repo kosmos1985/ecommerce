@@ -21,11 +21,11 @@ export class ContactComponent implements OnInit {
       message: this.fb.control('')
     })
 
-  }
+  };
 
   ngOnInit(): void {
 
-  }
+  };
 
   onSubmit(){
     if(this.fields.valid){
@@ -39,12 +39,10 @@ export class ContactComponent implements OnInit {
       this.collectionService.putContactData(contactData).subscribe();
     }
     this.fields.reset();
-  }
+  };
 
   cleanControls(){
-    if(this.fields.invalid || this.fields.valid){
     this.fields.reset();
-    }
-  }
+  };
 
 }
