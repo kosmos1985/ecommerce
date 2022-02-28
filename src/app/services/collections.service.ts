@@ -11,10 +11,10 @@ import { Map } from '../models/map';
 
 const httpOptions = {
 	headers: new HttpHeaders({
-		'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',  
     'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Headers': 'content-type',
+    'Access-Control-Allow-Headers': '*',
+    'Content-Type': 'application/json',
 	})
 }
 
@@ -29,7 +29,7 @@ export class CollectionsService {
   constructor(private http: HttpClient) { }
  
   getCollections(): Observable<Collection[]>{
-    return  this.http.get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(arr => arr.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
+    return  this.http.get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(array => array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
   };
 
   getMenCollection(): Observable<Collection[]>{
