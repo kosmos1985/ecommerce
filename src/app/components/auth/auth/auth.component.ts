@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AuthService } from '../auth.service';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -18,11 +19,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AuthComponent {
 
   isLoginMode = true;
+  isLoading = false;
+  error: string = '';
+  
 
-  form_field ={
-    emailFormControl: new FormControl('', [Validators.required, Validators.email]),
-    passwordFormControl: new FormControl('', [Validators.required, Validators.minLength(6)])
+  constructor(private fb:FormBuilder, private authService: AuthService){
+   
   }
+      
+    form_fields = {
+      emailFormControl: this.fb.control('', [Validators.required, Validators.email]),
+      passwordFormControl: this.fb.control('', [Validators.required, Validators.minLength(6)])
+    };
 
     matcher = new MyErrorStateMatcher();
 
@@ -31,7 +39,27 @@ export class AuthComponent {
     };
 
     onSubmit(form: NgForm){
-      console.log(form.value);
+      if(!form.valid){
+        return;
+      }
+      const email = this.form_fields.emailFormControl.value;
+      const password = this.form_fields.passwordFormControl.value;
+
+      this.isLoading = true;
+      if(this.isLoginMode){
+        // ...
+      }else{
+      this.authService.singUp(email, password).subscribe(resData=>{
+          console.log(resData); 
+          this.isLoading = false;
+        },
+        error=>{
+          console.log(error);
+          this.error = 'An error occurrend!'
+          this,this.isLoading = false;
+        });
+      }
+      
       form.reset();
     }
 
