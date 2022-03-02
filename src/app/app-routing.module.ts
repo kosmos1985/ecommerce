@@ -11,6 +11,7 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
 
 import { WomenComponent } from './components/content/women/women.component';
 import { CollectionsResolverService } from './collection-resolver.service';
+import { AuthComponent } from './components/auth/auth/auth.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cartItem', component: CartItemComponent },
+  { path: 'auth', component: AuthComponent },
   { path: '', redirectTo: 'collections', pathMatch: 'full'},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'},
 ];

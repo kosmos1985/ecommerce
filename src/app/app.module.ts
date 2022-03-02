@@ -7,6 +7,7 @@ import { IvyGalleryModule } from 'angular-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +30,7 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { LogginInterceptorService } from './interceptors/loggin-inteceptor.service';
+import { AuthComponent } from './components/auth/auth/auth.component';
 
 
 
@@ -45,6 +47,7 @@ import { LogginInterceptorService } from './interceptors/loggin-inteceptor.servi
     PageNotFoundComponent,
     CartItemComponent,
     ShoesToBuyComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { LogginInterceptorService } from './interceptors/loggin-inteceptor.servi
     IvyGalleryModule,
     MatCardModule,
     MatIconModule,
+    MatInputModule,
     MatBadgeModule,
     MatButtonModule,
     MatMenuModule,
