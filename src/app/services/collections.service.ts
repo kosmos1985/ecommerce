@@ -41,21 +41,15 @@ export class CollectionsService {
   };
 
   getItem(id:number): Observable<Collection> {
-    let params = new HttpParams();
-    params = params.append('id', id);
-    return this.http.get<Collection>(`${environment.apiUrl}` + params, httpOptions);
+    return this.http.get<Collection>(`${environment.apiUrl}` , httpOptions);
   };
   
   getAbout(): Observable<About>{
-    let params = new HttpParams();
-    params = params.append('id', 5);
-    return this.http.get<About>(`${environment.apiUrl}` + params , httpOptions);
+    return this.http.get<About>(`${environment.apiUrl}`, httpOptions);
   };
 
   getMap(): Observable<Map>{
-    let params = new HttpParams();
-    params = params.append('id', 6);
-    return this.http.get<Map>(`${environment.apiUrl}` + params, httpOptions);
+    return this.http.get<Map>(`${environment.apiUrl}`, httpOptions);
   };
 
   putContactData(contactData: Contact): Observable<Contact>{
