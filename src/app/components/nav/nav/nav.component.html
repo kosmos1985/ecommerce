@@ -14,13 +14,16 @@
         </a>
     </li>
     <li>
-        <button mat-button [matMenuTriggerFor]="menu">
-            <img src="../../../../assets/icons/image-avatar.png" alt="Avatar">
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>User Profile</button>
-            <button mat-menu-item>Your discounts</button>
-            <button mat-menu-item>Log out</button>
-        </mat-menu>
+        <a routerLink="/auth">Authenticate</a>
+        <ng-container *ngIf="logIn">
+            <button mat-button [matMenuTriggerFor]="menu">
+                <img src="../../../../assets/icons/image-avatar.png" alt="Avatar">
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>User Profile</button>
+                <button mat-menu-item>Your discounts</button>
+                <button mat-menu-item>Log out</button>
+            </mat-menu>
+        </ng-container>
     </li>
 </ul>

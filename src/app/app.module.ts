@@ -27,7 +27,7 @@ import { ContactComponent } from './components/content/contact/contact.component
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 import { CartItemComponent } from './components/content/cart-item/cart-item.component';
 import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { LogginInterceptorService } from './interceptors/loggin-inteceptor.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
@@ -57,6 +57,7 @@ import { AuthComponent } from './components/auth/auth/auth.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     IvyGalleryModule,
     MatCardModule,

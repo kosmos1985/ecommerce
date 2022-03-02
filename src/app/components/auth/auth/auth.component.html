@@ -1,9 +1,12 @@
 <div class="container">
-      <form class="form">
+      <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="form_field.emailFormControl" [errorStateMatcher]="matcher"
-                   placeholder="Ex. pat@example.com">
+                <input type="email" 
+                matInput 
+                [formControl]="form_field.emailFormControl" 
+                [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
             <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="form_field.emailFormControl.hasError('email') && !form_field.emailFormControl.hasError('required')">
               Please enter a valid email address
@@ -14,17 +17,24 @@
           </mat-form-field>
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Password</mat-label>
-            <input type="email" matInput [formControl]="form_field.passwordFormControl" [errorStateMatcher]="matcher"
-                   placeholder="Ex. pat@example.com">
+                <input type="email" 
+                matInput 
+                [formControl]="form_field.passwordFormControl" 
+                [errorStateMatcher]="matcher"
+                placeholder="Ex. 123456">
             <mat-hint>Errors appear instantly!</mat-hint>
-            <mat-error *ngIf="form_field.passwordFormControl.hasError('email') && !form_field.passwordFormControl.hasError('required')">
-              Please enter a valid password
+            <mat-error *ngIf="form_field.passwordFormControl.hasError('minLength') && !form_field.passwordFormControl.hasError('required')">
+              Please enter a valid password. Passord is so short.
             </mat-error>
             <mat-error *ngIf="form_field.passwordFormControl.hasError('required')">
               Password is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary">Sign Up</button> |
-          <button mat-raised-button color="primary">Switch to Login</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+              {{isLoginMode ? 'Login' : 'Sing up'}}
+            </button> |
+          <button mat-raised-button color="primary" type="button" (click) ="switchLoginMode()">
+              Switch to {{isLoginMode ? 'Sing up' : 'Login'}}
+          </button>
       </form>
 </div>

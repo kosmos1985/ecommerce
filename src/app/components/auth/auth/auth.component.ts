@@ -17,11 +17,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AuthComponent {
 
-form_field ={
-  emailFormControl: new FormControl('', [Validators.required, Validators.email]),
-  passwordFormControl: new FormControl('', [Validators.required, Validators.email])
-}
+  isLoginMode = true;
 
-  matcher = new MyErrorStateMatcher();
+  form_field ={
+    emailFormControl: new FormControl('', [Validators.required, Validators.email]),
+    passwordFormControl: new FormControl('', [Validators.required, Validators.minLength(6)])
+  }
+
+    matcher = new MyErrorStateMatcher();
+
+    switchLoginMode(){
+      this.isLoginMode = !this.isLoginMode;
+    };
+
+    onSubmit(form: NgForm){
+      console.log(form.value);
+      form.reset();
+    }
 
 }

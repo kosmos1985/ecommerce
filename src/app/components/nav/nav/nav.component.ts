@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class NavComponent implements OnInit {
 
   cartItems!: Collection[];
+  logIn = false;
 
   constructor(private cartService: CartService) { }
 
