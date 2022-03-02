@@ -25,7 +25,7 @@ export class ShoesToBuyComponent implements OnInit {
   img_path4!: string;
   
   index: number = 0;
-
+ 
   constructor(
     private gallery: Gallery,
      private route: ActivatedRoute, 

@@ -11,14 +11,21 @@ import { CollectionsService } from 'src/app/services/collections.service';
 export class CollectionsComponent implements OnInit, OnDestroy {
 
   collections: Collection[] = [];
-  
   private subscription = new Subscription();
+  isFetching = false;
  
 
   constructor(private http: CollectionsService) { }
 
   ngOnInit(): void {
+    this.fetchCollections();
+  };
+
+
+  private fetchCollections(){
+    this.isFetching = true;
     const sub = this.http.getCollections().subscribe(collections => {
+      this.isFetching = false;
       this.collections = collections;
     }, error => console.error(error),
     );
