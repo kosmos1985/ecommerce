@@ -1,0 +1,13 @@
+
+ {	
+	 "/api/*": {
+		"target": "https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/",		
+		"secure": false,
+		"pathRewrite": {"^/api" : ""},
+		"changeOrigin": true,
+		"logLevel": "debug"
+	}
+}
+
+
+

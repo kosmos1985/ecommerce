@@ -11,10 +11,11 @@ import { Map } from '../models/map';
 
 const httpOptions = {
 	headers: new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',  
-    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, ',
+    'Access-Control-Allow-Credentials': 'true',
 	})
 }
 
@@ -29,31 +30,31 @@ export class CollectionsService {
   constructor(private http: HttpClient) { }
  
   getCollections(): Observable<Collection[]>{
-    return  this.http.get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(array => array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
+    return  this.http.get<Collection>(`${environment.apiUrl}/collections.json`, httpOptions).pipe(map(array => array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1)));
   };
 
   getMenCollection(): Observable<Collection[]>{
-    return this.http.get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(items => items.filter(item => item.sex === "Men")));
+    return this.http.get<Collection>(`${environment.apiUrl}/collections.json`, httpOptions).pipe(map(items => items.filter(item => item.sex === "Men")));
   };
 
   getWomenCollection(): Observable<Collection[]>{
-    return this.http.get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(items => items.filter(item => item.sex === 'Women')));
+    return this.http.get<Collection>(`${environment.apiUrl}/collections.json`, httpOptions).pipe(map(items => items.filter(item => item.sex === 'Women')));
   };
 
   getItem(id:number): Observable<Collection> {
-    return this.http.get<Collection>(`${environment.apiUrl}` + id, httpOptions);
+    return this.http.get<Collection>(`${environment.apiUrl}/collections.json` + id, httpOptions);
   };
   
   getAbout(): Observable<About>{
-    return this.http.get<About>(`${environment.apiUrl}` + 5, httpOptions);
+    return this.http.get<About>(`${environment.apiUrl}/collections.json` + 5, httpOptions);
   };
 
   getMap(): Observable<Map>{
-    return this.http.get<Map>(`${environment.apiUrl}` + 6, httpOptions);
+    return this.http.get<Map>(`${environment.apiUrl}/collections.json` + 6, httpOptions);
   };
 
   putContactData(contactData: Contact): Observable<Contact>{
-    return this.http.put<Contact>(`${environment.apiUrl}` + '/' +  contactData.id, contactData, httpOptions);
+    return this.http.put<Contact>(`${environment.apiUrl}/collections.json` + '/' +  contactData.id, contactData, httpOptions);
   };
 
 }
