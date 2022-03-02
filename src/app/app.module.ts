@@ -27,7 +27,8 @@ import { PageNotFoundComponent } from './components/content/page-not-found/page-
 import { CartItemComponent } from './components/content/cart-item/cart-item.component';
 import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthInterceptorService } from './auth-interceptor.service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+import { LogginInterceptorService } from './interceptors/loggin-inteceptor.service';
 
 
 
@@ -65,9 +66,15 @@ import { AuthInterceptorService } from './auth-interceptor.service';
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
-    useClass:AuthInterceptorService,
+    useClass: AuthInterceptorService,
     multi: true
-  }],
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LogginInterceptorService,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
