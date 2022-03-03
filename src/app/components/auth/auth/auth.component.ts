@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormBuilder, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from '../auth.service';
 
@@ -24,7 +25,7 @@ export class AuthComponent {
   error: string = '';
   
 
-  constructor(private fb:FormBuilder, private authService: AuthService){
+  constructor(private fb:FormBuilder, private authService: AuthService, private router: Router){
    
   }
       
@@ -58,6 +59,7 @@ export class AuthComponent {
       authObservable.subscribe(resData=>{
         console.log(resData); 
         this.isLoading = false;
+        this.router.navigate(['/collections'])
       },
       errorMessage=>{
         console.log(errorMessage);
