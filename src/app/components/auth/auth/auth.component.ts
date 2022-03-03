@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from '../auth.service';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -45,21 +46,25 @@ export class AuthComponent {
       const email = this.form_fields.emailFormControl.value;
       const password = this.form_fields.passwordFormControl.value;
 
+      let authObservable: Observable<AuthResponseData>;
+
       this.isLoading = true;
       if(this.isLoginMode){
-        // ...
+        authObservable = this.authService.login(email, password);
       }else{
-      this.authService.singUp(email, password).subscribe(resData=>{
-          console.log(resData); 
-          this.isLoading = false;
-        },
-        error=>{
-          console.log(error);
-          this.error = 'An error occurrend!'
-          this,this.isLoading = false;
-        });
+        authObservable = this.authService.singUp(email, password);
       }
-      
+
+      authObservable.subscribe(resData=>{
+        console.log(resData); 
+        this.isLoading = false;
+      },
+      errorMessage=>{
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this,this.isLoading = false;
+      });
+
       form.reset();
     }
 
