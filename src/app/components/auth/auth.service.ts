@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { User } from './auth.module';
+import { User } from './user.model';
 
 export interface AuthResponseData {
   kind: string,
@@ -19,7 +19,8 @@ export interface AuthResponseData {
 })
 export class AuthService {
 
-  user = new Subject<User>();
+
+  user = new BehaviorSubject<User>({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
 
   constructor(private http: HttpClient) { }
 
@@ -59,7 +60,7 @@ export class AuthService {
    );
   };
 
-  private handleAuthentication(email: string, userId:string, tocken: string, expiresIn: number){
+  private handleAuthentication(email: string, userId:string, tocken: string , expiresIn: number){
     const expirationDate = new Date(
       new Date().getTime() + expiresIn * 1000
       );

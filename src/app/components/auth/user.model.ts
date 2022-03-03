@@ -1,9 +1,10 @@
 export class User {
+  
     constructor(
         public email: string,
         public id: string,
-        private _tocken: string,
-        private _tockenExpirationDate: Date
+        public _tocken: string,
+        public _tockenExpirationDate: Date
     ){}
 
     get tocken(){
