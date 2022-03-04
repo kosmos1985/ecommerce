@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AuthService } from './components/auth/auth.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy{
     [Breakpoints.XLarge, 'XLarge'],
   ]);
  
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver, private authService: AuthService) {
     breakpointObserver
       .observe([
         Breakpoints.XSmall,
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy{
         date: new Date().toDateString()
       };
     }, 500);
+    this.authService.autologin();
   };
 
   ngOnDestroy() {

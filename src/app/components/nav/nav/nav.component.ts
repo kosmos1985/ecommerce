@@ -20,7 +20,7 @@ export class NavComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cartItems = this.cartService.cartItems;  
     this.userSub = this.authService.user.subscribe(user=>{
-      this.isAuthenticated = !!user
+      this.isAuthenticated = !!user.tocken
     });   
   };
 

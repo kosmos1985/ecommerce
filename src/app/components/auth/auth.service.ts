@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
 
@@ -22,7 +23,7 @@ export class AuthService {
 
   user = new BehaviorSubject<User>({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   singUp(email: string, password: string){
   return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBEDATfiUC01FmMg-lSI7_LzUn8ImqTC4o',
@@ -40,6 +41,24 @@ export class AuthService {
        )
     })
    );
+  };
+
+  autologin(){
+    const userData = JSON.parse(localStorage.getItem('userData') || '');
+    if(!userData || userData === null){
+      return;
+    }
+ 
+    const loadedUser = new User(
+     userData.email,
+     userData.id,
+     userData._tocken,
+     new Date(userData._tockenExpirationDate)
+    )
+
+    if(loadedUser.tocken){
+      this.user.next(loadedUser);
+    }
   };
 
   login(email: string, password: string){
@@ -62,6 +81,8 @@ export class AuthService {
 
   logout(){
     this.user.next({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
+    this.router.navigate(['auth']);
+    localStorage.removeItem('userData');
   };
 
   private handleAuthentication(email: string, userId:string, tocken: string , expiresIn: number){
@@ -75,6 +96,9 @@ export class AuthService {
       expirationDate
       );
       this.user.next(user);
+
+      localStorage.setItem('userData', JSON.stringify(user));
+     
   };
   
   private handleErrorResponse(errorRes : HttpErrorResponse){
