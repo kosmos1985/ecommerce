@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy{
         date: new Date().toDateString()
       };
     }, 500);
-    this.authService.autologin();
+    this.authService.autoLogin();
   };
 
   ngOnDestroy() {

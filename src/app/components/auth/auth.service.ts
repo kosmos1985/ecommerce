@@ -22,6 +22,7 @@ export class AuthService {
 
 
   user = new BehaviorSubject<User>({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
+  private tockenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -43,8 +44,8 @@ export class AuthService {
    );
   };
 
-  autologin(){
-    const userData = JSON.parse(localStorage.getItem('userData') || '');
+  autoLogin(){
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
     if(!userData || userData === null){
       return;
     }
@@ -58,6 +59,8 @@ export class AuthService {
 
     if(loadedUser.tocken){
       this.user.next(loadedUser);
+      const expirationDuration = new Date(userData._tockenExpirationDate).getTime() - new Date().getTime();
+      this.autoLogout(expirationDuration);
     }
   };
 
@@ -79,11 +82,23 @@ export class AuthService {
    );
   };
 
+ 
   logout(){
     this.user.next({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
     this.router.navigate(['auth']);
     localStorage.removeItem('userData');
+    if(this.tockenExpirationTimer){
+      clearTimeout(this.tockenExpirationTimer);
+    }
+    this.tockenExpirationTimer = null;
   };
+
+  autoLogout(expirationDuration: number){
+    this.tockenExpirationTimer = setTimeout(()=>{
+      this.logout();
+    },expirationDuration);
+  };
+
 
   private handleAuthentication(email: string, userId:string, tocken: string , expiresIn: number){
     const expirationDate = new Date(
@@ -96,7 +111,7 @@ export class AuthService {
       expirationDate
       );
       this.user.next(user);
-
+      this.autoLogout(expiresIn * 1000);
       localStorage.setItem('userData', JSON.stringify(user));
      
   };

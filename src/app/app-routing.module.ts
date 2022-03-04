@@ -12,10 +12,12 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
 import { WomenComponent } from './components/content/women/women.component';
 import { CollectionsResolverService } from './services/collection-resolver.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
+import { AuthGuard } from './components/auth/auth.guard';
 
 const routes: Routes = [
 
-  { path: 'collections', component: CollectionsComponent },
+  { path: '', redirectTo: 'collections', pathMatch: 'full'},
+  { path: 'collections', component: CollectionsComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'mens', component: MenComponent },
   { path: 'men/:id', component: ShoesToBuyComponent , resolve: [CollectionsResolverService]},
@@ -25,7 +27,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'cartItem', component: CartItemComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '', redirectTo: 'auth', pathMatch: 'full'},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'},
 ];
 
