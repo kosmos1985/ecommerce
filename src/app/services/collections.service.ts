@@ -29,24 +29,8 @@ export class CollectionsService {
   constructor(private http: HttpClient, private authService: AuthService) { }
  
   getCollections(): Observable<Collection[]>{
-  
-    return this.authService.user.pipe(
-      take(1), 
-      exhaustMap(user=>
-        {
             return  this.http
-        .get<Collection>(`${environment.apiUrl}`,{
-          headers: new HttpHeaders({
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': '*',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, ',
-            'Access-Control-Allow-Credentials': 'true',
-          }),
-          params: new HttpParams().set('auth', (user.tocken !== null ? user.tocken : ''))
-          });
-    
-        }),
+        .get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(
       map(array =>  array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1))
     );
   };

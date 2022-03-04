@@ -60,6 +60,10 @@ export class AuthService {
    );
   };
 
+  logout(){
+    this.user.next({email:'', id:'', _tocken:'', _tockenExpirationDate: new Date, tocken:''});
+  };
+
   private handleAuthentication(email: string, userId:string, tocken: string , expiresIn: number){
     const expirationDate = new Date(
       new Date().getTime() + expiresIn * 1000

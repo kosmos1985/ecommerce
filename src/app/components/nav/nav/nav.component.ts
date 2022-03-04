@@ -12,7 +12,6 @@ import { AuthService } from '../../auth/auth.service';
 export class NavComponent implements OnInit, OnDestroy {
 
   cartItems!: Collection[];
-  logIn = false;
   isAuthenticated = false;
   private userSub!: Subscription;
 
@@ -24,6 +23,10 @@ export class NavComponent implements OnInit, OnDestroy {
       this.isAuthenticated = !!user
     });   
   };
+
+  onLogout(){
+    this.authService.logout();
+  }
 
   ngOnDestroy(): void {
       this.userSub.unsubscribe();

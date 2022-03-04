@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './components/content/page-not-found/page-
 import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-buy.component';
 
 import { WomenComponent } from './components/content/women/women.component';
-import { CollectionsResolverService } from './collection-resolver.service';
+import { CollectionsResolverService } from './services/collection-resolver.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
 
 const routes: Routes = [
@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'cartItem', component: CartItemComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '', redirectTo: 'collections', pathMatch: 'full'},
+  { path: '', redirectTo: 'auth', pathMatch: 'full'},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'},
 ];
 

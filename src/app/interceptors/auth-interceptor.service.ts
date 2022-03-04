@@ -1,18 +1,21 @@
-import { HttpEventType, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { tap } from "rxjs/operators";
+import { HttpHandler, HttpInterceptor, HttpParams, HttpRequest } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { exhaustMap, take } from "rxjs/operators";
 
+import { AuthService } from "../components/auth/auth.service";
 
+@Injectable()
 export class AuthInterceptorService implements HttpInterceptor{
+    constructor(private authService: AuthService){}
+    
     intercept(req: HttpRequest <any>, next: HttpHandler){
-        console.log('Reqest is on its way!');
-        return next.handle(req).pipe(
-            tap(event=>{
-                console.log(event);
-                if(event.type === HttpEventType.Response){
-                    console.log('Response arrived, body data:');
-                    console.log(event.body);
-                }
+       return this.authService.user.pipe(
+            take(1), 
+            exhaustMap(user=>{
+                const modifiedReq = req.clone({params: new HttpParams().set('auth',  (user.tocken !== null ? user.tocken : ''))})
+                return next.handle(modifiedReq);
             })
-        )
+        );
+        
     }
 }

@@ -4,8 +4,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { Collection } from './models/collection';
-import { CollectionsService } from './services/collections.service';
+import { Collection } from '../models/collection';
+import { CollectionsService } from './collections.service';
 
 
 
