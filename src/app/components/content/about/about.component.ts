@@ -21,14 +21,11 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const subAbout = this.http.getAbout().subscribe(aboutParams => {
       this.about = aboutParams;
-      console.log(this.about);
-      
     }, error => console.error(error),
     );
 
     const subMap = this.http.getMap().subscribe(mapParams => {
       this.map = mapParams;
-      console.log(this.map);
     }, error => console.error(error),
     );
 

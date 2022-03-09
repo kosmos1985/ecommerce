@@ -32,7 +32,7 @@ export class CollectionsService {
  
   getCollections(): Observable<Collection[]>{
             return  this.http.get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(
-      map(array =>  array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1))
+      map(array =>  array.sort((valueToSetPositon: Collection, valueToCompare: Collection) => valueToSetPositon.company === valueToCompare.company ? 0 : valueToSetPositon.company ? 1 : -1))
     );
   };
 

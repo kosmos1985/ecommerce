@@ -19,16 +19,16 @@ export class CartService {
   addProductToCart(product: Collection, amount: number) {
     this.cartItems.push(product);
     this.products.next(this.cartItems);
-    this.recalculateUp(amount);
+    this.addThePriceOfTheNextProduct(amount);
   };
 
   removeProductFromCart( total: number) {
     this.cartItems.pop();      
     this.products.next(this.cartItems);
-    this.recalculateDown(total);
+    this.reduceThePriceOfTheNextProduct(total);
   };
 
- recalculateUp(amount: number) {
+ addThePriceOfTheNextProduct(amount: number) {
     let sum = 0;
     let amt = 0;
     for (let cartItem of this.cartItems) {
@@ -41,7 +41,7 @@ export class CartService {
     this.newTotal.next({total: this.total, amount: this.totalAmount});
   };
 
-  recalculateDown(amount: number) {
+  reduceThePriceOfTheNextProduct(amount: number) {
     let rem = this.total;
     let amt = this.totalAmount;
     for (let cartItem of this.cartItems) {
@@ -61,7 +61,7 @@ export class CartService {
       let index = this.cartItems.indexOf(item);
       this.cartItems.splice(index, 1);
     }
-    this.recalculateDown(total);
+    this.reduceThePriceOfTheNextProduct(total);
   };
 
   emptryCart() {
