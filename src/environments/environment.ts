@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/collections.json',
+  apiUrlFullCollections: 'https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/collections.json',
+  apiUrlPartDataBase: 'https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/collections',
 };
 
 /*

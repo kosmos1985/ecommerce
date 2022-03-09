@@ -10,6 +10,7 @@ import { Contact } from '../models/contact';
 import { Map } from '../models/map';
 
 
+
 const httpOptions = {
 	headers: new HttpHeaders({
     'Access-Control-Allow-Origin': '*',
@@ -30,7 +31,7 @@ export class CollectionsService {
  
   getCollections(): Observable<Collection[]>{
             return  this.http
-        .get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(
+        .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(
       map(array =>  array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1))
     );
   };
@@ -38,28 +39,28 @@ export class CollectionsService {
 
   getMenCollection(): Observable<Collection[]>{
     return this.http
-    .get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(items => items.filter(item => item.sex === "Men")));
+    .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(map(items => items.filter(item => item.sex === "Men")));
   };
 
   getWomenCollection(): Observable<Collection[]>{
     return this.http
-    .get<Collection>(`${environment.apiUrl}`, httpOptions).pipe(map(items => items.filter(item => item.sex === 'Women')));
+    .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(map(items => items.filter(item => item.sex === 'Women')));
   };
 
   getItem(id:number): Observable<Collection> {
-    return this.http.get<Collection>(`${environment.apiUrl}` , httpOptions);
+    return this.http.get<Collection>(`${environment.apiUrlPartDataBase}/${id}.json` , httpOptions);
   };
   
   getAbout(): Observable<About>{
-    return this.http.get<About>(`${environment.apiUrl}`, httpOptions);
+    return this.http.get<About>(`${environment.apiUrlPartDataBase}/${4}.json`, httpOptions);
   };
 
   getMap(): Observable<Map>{
-    return this.http.get<Map>(`${environment.apiUrl}`, httpOptions);
+    return this.http.get<Map>(`${environment.apiUrlPartDataBase}/${5}.json`, httpOptions);
   };
 
   putContactData(contactData: Contact): Observable<Contact>{
-    return this.http.put<Contact>(`${environment.apiUrl}` + '/' +  contactData.id, contactData, httpOptions);
+    return this.http.put<Contact>(`${environment.apiUrlPartDataBase}/${contactData.id}.json`, contactData, httpOptions);
   };
 
 }
