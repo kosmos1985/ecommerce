@@ -1,11 +1,14 @@
 import { About } from "./about";
 import { Contact } from "./contact";
+import { KindOfDataResponse } from "./enum";
 
 export interface Collection {
+
       sort(arg0: (a: Collection, b: Collection) => 0 | 1 | -1): any;
       filter(arg0: (item: any) => boolean): any;
      
       id: number,
+      kindOf: KindOfDataResponse,
       company: string,
       title: string,
       description: string,

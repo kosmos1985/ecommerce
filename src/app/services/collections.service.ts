@@ -8,6 +8,7 @@ import { About } from '../models/about';
 import { Collection } from '../models/collection';
 import { Contact } from '../models/contact';
 import { Map } from '../models/map';
+import { KindOfDataResponse } from '../models/enum';
 
 
 
@@ -30,8 +31,7 @@ export class CollectionsService {
   constructor(private http: HttpClient, private authService: AuthService) { }
  
   getCollections(): Observable<Collection[]>{
-            return  this.http
-        .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(
+            return  this.http.get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(
       map(array =>  array.sort((a: Collection, b: Collection) => a.company === b.company ? 0 : a.company ? 1 : -1))
     );
   };
@@ -39,7 +39,7 @@ export class CollectionsService {
 
   getMenCollection(): Observable<Collection[]>{
     return this.http
-    .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(map(items => items.filter(item => item.sex === "Men")));
+    .get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(map(items => items.filter(item => item.sex === 'Men')));
   };
 
   getWomenCollection(): Observable<Collection[]>{
@@ -52,11 +52,11 @@ export class CollectionsService {
   };
   
   getAbout(): Observable<About>{
-    return this.http.get<About>(`${environment.apiUrlPartDataBase}/${4}.json`, httpOptions);
+    return this.http.get<About>(`${environment.apiUrlPartDataBase}/${KindOfDataResponse.ABOUT}.json`, httpOptions);
   };
 
   getMap(): Observable<Map>{
-    return this.http.get<Map>(`${environment.apiUrlPartDataBase}/${5}.json`, httpOptions);
+    return this.http.get<Map>(`${environment.apiUrlPartDataBase}/${KindOfDataResponse.MAP}.json`, httpOptions);
   };
 
   putContactData(contactData: Contact): Observable<Contact>{
