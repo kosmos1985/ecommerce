@@ -1,27 +1,23 @@
 import { About } from "./about";
 import { Contact } from "./contact";
 import { KindOfDataResponse } from "./enum";
+import { LargeImage, SmallImage } from "./Image";
 
 export interface Collection {
 
       sort(arg0: (a: Collection, b: Collection) => 0 | 1 | -1): any;
       filter(arg0: (item: any) => boolean): any;
      
+      company: string,
+      description: string,
       id: number,
       kindOf: KindOfDataResponse,
-      company: string,
-      title: string,
-      description: string,
+      large_img: LargeImage,
       price: number,
       sex: string,
-      large_img_1: string,
-      large_img_2: string,
-      large_img_3: string,
-      large_img_4: string,
-      small_img_1: string,
-      small_img_2: string,
-      small_img_3: string,
-      small_img_4: string,
+      small_img: SmallImage,
+      title: string,
+      
       about: About,
       contact: Contact
 }

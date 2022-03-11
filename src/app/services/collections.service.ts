@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { exhaustMap, map, take, tap } from 'rxjs/operators';
+import { map} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../components/auth/auth.service';
 import { About } from '../models/about';
 import { Collection } from '../models/collection';
 import { Contact } from '../models/contact';
@@ -28,7 +27,7 @@ const httpOptions = {
 export class CollectionsService {
   
  
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
  
   getCollections(): Observable<Collection[]>{
             return  this.http.get<Collection>(`${environment.apiUrlFullCollections}`, httpOptions).pipe(
@@ -48,7 +47,7 @@ export class CollectionsService {
   };
 
   getItem(id:number): Observable<Collection> {
-    return this.http.get<Collection>(`${environment.apiUrlPartDataBase}/${id}.json` , httpOptions);
+    return this.http.get<Collection>(`${environment.apiUrlPartDataBase}/${id - 1}.json` , httpOptions);
   };
   
   getAbout(): Observable<About>{

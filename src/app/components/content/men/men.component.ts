@@ -25,6 +25,19 @@ export class MenComponent implements OnInit, OnDestroy {
     this.subscription.add(sub);
   };
 
+  fetchSmallImg(): Collection[]{
+    const image = this.menCollection.filter(path=> path.small_img);
+    console.log(image);
+  
+    if(typeof image == 'undefined'){
+     return [];
+    }
+    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
+    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
+  
+    return path;
+  };
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   };

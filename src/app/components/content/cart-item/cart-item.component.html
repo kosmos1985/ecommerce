@@ -6,13 +6,13 @@
       <span class="d-block">{{totalAmount | currency}}</span>
     </p>
 </div>
-  <mat-card class="card" *ngFor="let item of cartItems">
+  <mat-card class="card" *ngFor="let item of cartItems; let i = index">
     <mat-card-title-group>
       <mat-card-title>{{item.company}}</mat-card-title>
       <mat-card-subtitle>{{item.title}}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-content>
-      <img mat-card-sm-image  [src]="item.small_img_1" >
+      <img mat-card-sm-image  [src]="fetchSmallImg()[i]" >
       <p>{{item.description}}</p>
       <p>{{item.price  | currency}}</p>
       <button mat-stroked-button color="warn" (click)="removeItemFromCart(totalAmount)">

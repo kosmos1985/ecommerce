@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Collection } from 'src/app/models/collection';
 import { CartService } from 'src/app/services/cart.service';
 
 
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartItemComponent implements OnInit {
 
 
-  cartItems: any;
+  cartItems!: Collection[];
   totalAmount!: number;
 
   constructor(private cartService: CartService) { }
@@ -20,6 +21,18 @@ export class CartItemComponent implements OnInit {
       this.totalAmount = this.cartService.getTotalPrice(); 
   };
 
+  fetchSmallImg(): Collection[]{
+    const image = this.cartItems.filter(path=> path.small_img);
+    console.log(image);
+  
+    if(typeof image == 'undefined'){
+     return [];
+    }
+    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
+    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
+  
+    return path;
+  };
   
   removeItemFromCart(totalAmount: number) {
     this.cartService.removeProductFromCart(totalAmount);

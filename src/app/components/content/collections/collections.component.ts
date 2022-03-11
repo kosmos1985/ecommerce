@@ -27,9 +27,26 @@ export class CollectionsComponent implements OnInit, OnDestroy {
     const sub = this.http.getCollections().subscribe(collections => {
       this.isFetching = false;
       this.collections = collections;
+      console.log(this.collections);
+      
     }, error => console.error(error),
     );
     this.subscription.add(sub);
+  };
+
+  // const image = this.collections.find(imgPath=> imgPath.small_img.find(path =>path.img == "small_img_1" ))?.small_img;
+  // const image = this.collections.find(imgPath=> imgPath.small_img)?.small_img[0];
+  fetchSmallImg(): Collection[]{
+    const image = this.collections.filter(path=> path.small_img);
+    console.log(image);
+  
+    if(typeof image == 'undefined'){
+     return [];
+    }
+    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
+    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
+  
+    return path;
   };
   
   ngOnDestroy() {

@@ -45,6 +45,19 @@ export class ShoesToBuyComponent implements OnInit {
       this.getStringValueFromObservableForFourthtImage();
   };
 
+  fetchSmallImg(): Collection[]{
+    const image = this.cartItems.filter(path=> path.small_img);
+    console.log(image);
+  
+    if(typeof image == 'undefined'){
+     return [];
+    }
+    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
+    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
+  
+    return path;
+  };
+
   addToBasket(item: Collection, total : number) {
     this.cartService.addProductToCart(item, total);
     this.totalAmount = this.cartService.getTotalPrice();
@@ -62,7 +75,7 @@ export class ShoesToBuyComponent implements OnInit {
   getStringValueFromObservableForFirstImage(){
     this.item.pipe(take(1)).
     subscribe(img_path=> {
-      this.img_path1 = img_path.large_img_1; 
+      this.img_path1 = img_path.large_img.filter(path=> path.img == 'large_img_1'); 
     });
     
   };
@@ -70,21 +83,21 @@ export class ShoesToBuyComponent implements OnInit {
   getStringValueFromObservableForSecondtImage(){
     this.item.pipe(take(1)).
     subscribe(img_path=> {
-      this.img_path2 = img_path.large_img_2;
+      this.img_path2 = img_path.large_img.filter(path=> path.img == 'large_img_2');
     })
   };
   
   getStringValueFromObservableForThirdtImage(){
     this.item.pipe(take(1)).
     subscribe(img_path=> {
-      this.img_path3 = img_path.large_img_3
+      this.img_path3 = img_path.large_img.filter(path=> path.img == 'large_img_3');
     })
   };
   
   getStringValueFromObservableForFourthtImage(){
     this.item.pipe(take(1)).
     subscribe(img_path=> {
-      this.img_path4 = img_path.large_img_4
+      this.img_path4 = img_path.large_img.filter(path=> path.img == 'large_img_4');
     })
   };
 

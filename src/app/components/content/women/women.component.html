@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="container" *ngFor="let womenShoes of womenCollection">
+  <div class="container" *ngFor="let womenShoes of womenCollection; let i = index">
         <div class="women">
             <hr>
                 <a [routerLink]="['/women', womenShoes.id]">
@@ -8,7 +8,7 @@
                             <mat-card-title>{{womenShoes.company}}</mat-card-title>
                         </mat-card-title-group>
                         <mat-card-content>
-                            <img mat-card-sm-image  [src]="womenShoes.small_img_1" alt="Women shoes">
+                            <img mat-card-sm-image  [src]="fetchSmallImg()[i]" alt="Women shoes">
                             <p>{{womenShoes.price | currency}}</p>
                         </mat-card-content>
                     </mat-card>
