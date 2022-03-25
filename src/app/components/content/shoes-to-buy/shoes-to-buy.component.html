@@ -1,16 +1,16 @@
 <ng-container *ngIf="item | async as item; else spinner">
   <div class="container">
     <div class="gallery" >
-        <img [src]="fetchSmallImg()[index]" (click)="showGallery(index)">
-        <img [src]="fetchSmallImg()[index]" (click)="showGallery(index)">
-        <img [src]="fetchSmallImg()[index]" (click)="showGallery(index)">
-        <img [src]="fetchSmallImg()[index]" (click)="showGallery(index)">
+        <img [src]="fetchFirstSmallImg(item)" (click)="showGallery(index, item)">
+        <img [src]="fetchSecondSmallImg(item)" (click)="showGallery(index, item)">
+        <img [src]="fetchThirdSmallImg(item)" (click)="showGallery(index, item)">
+        <img [src]="fetchFourthtSmallImg(item)" (click)="showGallery(index, item)">
       </div>
       <hr>
         <div class="cart">
           <div class="desctription">
             <h3>{{item.company}}</h3> 
-              <p>{{item.description}}}</p>  
+              <p>{{item.description}}</p>  
               <p><strong>Price:</strong> {{item.price }} $</p>
                   <button mat-stroked-button  (click)="decrease(item, totalAmount)">
                     <mat-icon aria-hidden="false">remove</mat-icon>

@@ -8,8 +8,7 @@
                     <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
                 </mat-card-title-group>
                 <mat-card-content>
-                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id]" />
-                    <pre>{{fetchSmallImg()[collection.id]}}</pre>
+                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id - 1]" />
                     <p>{{collection.price | currency}}</p>
                 </mat-card-content>
                 </mat-card>
@@ -24,8 +23,7 @@
                     <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
                 </mat-card-title-group>
                 <mat-card-content>
-                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id]" />
-                    <pre>{{fetchSmallImg()[collection.id]}}</pre>
+                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id - 1]" />
                     <p>{{collection.price | currency}}</p>
                 </mat-card-content>
                 </mat-card>

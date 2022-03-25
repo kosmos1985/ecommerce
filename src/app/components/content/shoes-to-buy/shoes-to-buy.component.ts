@@ -5,8 +5,9 @@ import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
-import { map, switchMap, take } from 'rxjs/operators';
+import { map, switchMap} from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-shoes-to-buy',
@@ -39,23 +40,23 @@ export class ShoesToBuyComponent implements OnInit {
       map(params => +params.get('id')!),
       switchMap(id => this.collectionService.getItem(id)));
       this.cartItems = this.cartService.cartItems; 
-      this.getStringValueFromObservableForFirstImage();
-      this.getStringValueFromObservableForSecondtImage();
-      this.getStringValueFromObservableForThirdtImage();
-      this.getStringValueFromObservableForFourthtImage();
+  };
+ 
+
+  fetchFirstSmallImg(item: Collection){
+    return Object.values(item.small_img)[0];
   };
 
-  fetchSmallImg(): Collection[]{
-    const image = this.cartItems.filter(path=> path.small_img);
-    console.log(image);
-  
-    if(typeof image == 'undefined'){
-     return [];
-    }
-    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
-    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
-  
-    return path;
+  fetchSecondSmallImg(item: Collection){
+    return Object.values(item.small_img)[1];
+  };
+
+  fetchThirdSmallImg(item: Collection){
+    return Object.values(item.small_img)[2];
+  };
+
+  fetchFourthtSmallImg(item: Collection){
+    return Object.values(item.small_img)[3];
   };
 
   addToBasket(item: Collection, total : number) {
@@ -72,42 +73,17 @@ export class ShoesToBuyComponent implements OnInit {
     this.location.back();
   };
 
-  getStringValueFromObservableForFirstImage(){
-    this.item.pipe(take(1)).
-    subscribe(img_path=> {
-      this.img_path1 = img_path.large_img.filter(path=> path.img == 'large_img_1'); 
-    });
-    
-  };
-  
-  getStringValueFromObservableForSecondtImage(){
-    this.item.pipe(take(1)).
-    subscribe(img_path=> {
-      this.img_path2 = img_path.large_img.filter(path=> path.img == 'large_img_2');
-    })
-  };
-  
-  getStringValueFromObservableForThirdtImage(){
-    this.item.pipe(take(1)).
-    subscribe(img_path=> {
-      this.img_path3 = img_path.large_img.filter(path=> path.img == 'large_img_3');
-    })
-  };
-  
-  getStringValueFromObservableForFourthtImage(){
-    this.item.pipe(take(1)).
-    subscribe(img_path=> {
-      this.img_path4 = img_path.large_img.filter(path=> path.img == 'large_img_4');
-    })
-  };
-
-  showGallery(index: number) {
+  showGallery(index: number, item: Collection) {
+    const path1: string = Object.values(item.large_img)[0];
+    const path2: string = Object.values(item.large_img)[1];
+    const path3: string = Object.values(item.large_img)[2];
+    const path4: string = Object.values(item.large_img)[3];
     let prop = {
         images: [
-            {path: `${this.img_path1}`},
-            {path: `${this.img_path2}`},
-            {path: `${this.img_path3}`},
-            {path: `${this.img_path4}`},
+            {path: `${path1}`},
+            {path: `${path2}`},
+            {path: `${path3}`},
+            {path: `${path4}`},
         ],
         index
     };

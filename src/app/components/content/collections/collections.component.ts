@@ -34,8 +34,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
     this.subscription.add(sub);
   };
 
-  // const image = this.collections.find(imgPath=> imgPath.small_img.find(path =>path.img == "small_img_1" ))?.small_img;
-  // const image = this.collections.find(imgPath=> imgPath.small_img)?.small_img[0];
   fetchSmallImg(): Collection[]{
     const image = this.collections.filter(path=> path.small_img);
     console.log(image);
