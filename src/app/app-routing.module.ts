@@ -15,23 +15,34 @@ import { AuthComponent } from './components/auth/auth/auth.component';
 import { AuthGuard } from './components/auth/auth.guard';
 
 const routes: Routes = [
-
-  { path: '', redirectTo: 'collections', pathMatch: 'full'},
-  { path: 'collections', component: CollectionsComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'collections', pathMatch: 'full' },
+  {
+    path: 'collections',
+    component: CollectionsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'mens', component: MenComponent },
-  { path: 'men/:id', component: ShoesToBuyComponent , resolve: [CollectionsResolverService]},
+  {
+    path: 'men/:id',
+    component: ShoesToBuyComponent,
+    resolve: [CollectionsResolverService],
+  },
   { path: 'womens', component: WomenComponent },
-  { path: 'women/:id', component: ShoesToBuyComponent , resolve: [CollectionsResolverService]},
+  {
+    path: 'women/:id',
+    component: ShoesToBuyComponent,
+    resolve: [CollectionsResolverService],
+  },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cartItem', component: CartItemComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '**', redirectTo: 'not-found', pathMatch: 'full'},
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

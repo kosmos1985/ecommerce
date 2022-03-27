@@ -1,21 +1,27 @@
 <div class="product-cart" *ngIf="cartItems && cartItems.length > 0">
   <div class="total">
-    <button mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button> 
+    <button mat-raised-button color="warn" (click)="emptyCart()">
+      Empty Cart
+    </button>
     <p>
       <strong class="d-block">Total:</strong>
-      <span class="d-block">{{totalAmount | currency}}</span>
+      <span class="d-block">{{ totalAmount | currency }}</span>
     </p>
-</div>
+  </div>
   <mat-card class="card" *ngFor="let item of cartItems; let i = index">
     <mat-card-title-group>
-      <mat-card-title>{{item.company}}</mat-card-title>
-      <mat-card-subtitle>{{item.title}}</mat-card-subtitle>
+      <mat-card-title>{{ item.company }}</mat-card-title>
+      <mat-card-subtitle>{{ item.title }}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-content>
-      <img mat-card-sm-image  [src]="fetchSmallImg()[i]" >
-      <p>{{item.description}}</p>
-      <p>{{item.price  | currency}}</p>
-      <button mat-stroked-button color="warn" (click)="removeItemFromCart(totalAmount)">
+      <img mat-card-sm-image [src]="fetchSmallImg()[i]" />
+      <p>{{ item.description }}</p>
+      <p>{{ item.price | currency }}</p>
+      <button
+        mat-stroked-button
+        color="warn"
+        (click)="removeItemFromCart(totalAmount)"
+      >
         <mat-icon aria-hidden="false">remove</mat-icon>
       </button>
     </mat-card-content>

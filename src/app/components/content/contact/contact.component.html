@@ -1,77 +1,117 @@
 <div class="content">
-    <div class="background">
-        <div class="container">
-          <div class="screen">
-            <div class="screen-header">
-              <div class="screen-header-left">
-                <div class="screen-header-button close"></div>
-                <div class="screen-header-button maximize"></div>
-                <div class="screen-header-button minimize"></div>
-              </div>
-              <div class="screen-header-right">
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-              </div>
-            </div>
-            <div class="screen-body">
-              <div class="screen-body-item left">
-                <div class="app-title">
-                  <span>CONTACT</span>
-                  <span>US</span>
-                </div>
-              </div>
-              <form [formGroup]="fields" (ngSubmit)="onSubmit()">
-                <div class="screen-body-item">
-                  <div class="app-form">
-                    <div class="app-form-group">
-                      <input type="text" class="app-form-control" placeholder="NAME" formControlName="name" minlength="2">
-                    </div>
-                      <div class="validation-feedback" *ngIf="fields.get('name')!.touched || fields.get('name')!.dirty">
-                        <span *ngIf="fields.get('name')!.hasError('required')">
-                          Name is required
-                        </span>
-                        <span *ngIf="fields.get('name')!.hasError('minlength')">
-                          Name is so short
-                        </span>
-                      </div>
-                    <div class="app-form-group">
-                      <input type="email" class="app-form-control" placeholder="EMAIL" formControlName="email">
-                    </div>
-                      <div class="validation-feedback" *ngIf="fields.get('email')!.touched || fields.get('email')!.dirty">
-                        <span *ngIf="fields.get('email')!.hasError('required')">
-                          Email is required
-                        </span>
-                        <span *ngIf="fields.get('email')!.hasError('email')">
-                          Email is not avalible
-                        </span>
-                        <span *ngIf="fields.get('email')!.hasError('pattern')">
-                          The e-mail contains characters that are not allowed
-                        </span>
-                      </div>
-                    <div class="app-form-group">
-                      <input type="text" class="app-form-control" placeholder="CONTACT NUMBER" formControlName="contact_number">
-                    </div>
-                      <div class="validation-feedback" *ngIf="fields.get('contact_number')!.touched || fields.get('contact_number')!.dirty">
-                        <span *ngIf="fields.get('contact_number')!.hasError('maxlength')">
-                        Contact number is so long
-                        </span>
-                        <span *ngIf="fields.get('contact_number')!.hasError('pattern')">
-                          The contact number contains characters that are not allowed
-                        </span>
-                      </div>
-                    <div class="app-form-group message">
-                      <textarea class="app-form-control" placeholder="MESSAGE" formControlName="message"></textarea>
-                    </div>
-                    <div class="app-form-group buttons">
-                      <button class="app-form-button">CANCEL</button>
-                      <button type="submit" class="app-form-button">SEND</button>
-                    </div>
-                  </div>
-                </div>
-            </form>
-            </div>
+  <div class="background">
+    <div class="container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
           </div>
         </div>
-      </div> 
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title">
+              <span>CONTACT</span>
+              <span>US</span>
+            </div>
+          </div>
+          <form [formGroup]="fields" (ngSubmit)="onSubmit()">
+            <div class="screen-body-item">
+              <div class="app-form">
+                <div class="app-form-group">
+                  <input
+                    type="text"
+                    class="app-form-control"
+                    placeholder="NAME"
+                    formControlName="name"
+                    minlength="2"
+                  />
+                </div>
+                <div
+                  class="validation-feedback"
+                  *ngIf="
+                    fields.get('name')!.touched || fields.get('name')!.dirty
+                  "
+                >
+                  <span *ngIf="fields.get('name')!.hasError('required')">
+                    Name is required
+                  </span>
+                  <span *ngIf="fields.get('name')!.hasError('minlength')">
+                    Name is so short
+                  </span>
+                </div>
+                <div class="app-form-group">
+                  <input
+                    type="email"
+                    class="app-form-control"
+                    placeholder="EMAIL"
+                    formControlName="email"
+                  />
+                </div>
+                <div
+                  class="validation-feedback"
+                  *ngIf="
+                    fields.get('email')!.touched || fields.get('email')!.dirty
+                  "
+                >
+                  <span *ngIf="fields.get('email')!.hasError('required')">
+                    Email is required
+                  </span>
+                  <span *ngIf="fields.get('email')!.hasError('email')">
+                    Email is not avalible
+                  </span>
+                  <span *ngIf="fields.get('email')!.hasError('pattern')">
+                    The e-mail contains characters that are not allowed
+                  </span>
+                </div>
+                <div class="app-form-group">
+                  <input
+                    type="text"
+                    class="app-form-control"
+                    placeholder="CONTACT NUMBER"
+                    formControlName="contact_number"
+                  />
+                </div>
+                <div
+                  class="validation-feedback"
+                  *ngIf="
+                    fields.get('contact_number')!.touched ||
+                    fields.get('contact_number')!.dirty
+                  "
+                >
+                  <span
+                    *ngIf="fields.get('contact_number')!.hasError('maxlength')"
+                  >
+                    Contact number is so long
+                  </span>
+                  <span
+                    *ngIf="fields.get('contact_number')!.hasError('pattern')"
+                  >
+                    The contact number contains characters that are not allowed
+                  </span>
+                </div>
+                <div class="app-form-group message">
+                  <textarea
+                    class="app-form-control"
+                    placeholder="MESSAGE"
+                    formControlName="message"
+                  ></textarea>
+                </div>
+                <div class="app-form-group buttons">
+                  <button class="app-form-button">CANCEL</button>
+                  <button type="submit" class="app-form-button">SEND</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

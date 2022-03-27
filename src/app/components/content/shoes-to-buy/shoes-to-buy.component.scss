@@ -1,36 +1,36 @@
-.container{
-    display: flex;
-    width: 80%;
-    margin-left: 20%;
+.container {
+  display: flex;
+  width: 80%;
+  margin-left: 20%;
 }
-.gallery:hover{
-    cursor: pointer;
+.gallery:hover {
+  cursor: pointer;
 }
-.desctription{
-    text-align: center;
-    input{
-        width: 80px;
-        height: 30px;
-    }
+.desctription {
+  text-align: center;
+  input {
+    width: 80px;
+    height: 30px;
+  }
 }
-h3{
-    color: hsl(26, 100%, 55%);
-    text-transform: uppercase;
+h3 {
+  color: hsl(26, 100%, 55%);
+  text-transform: uppercase;
 }
-p{
-    width: 50%;
-    margin-left: 25%;
-    .d-block{
-        padding: 2%;
-        margin-top: 2%;
-    }
+p {
+  width: 50%;
+  margin-left: 25%;
+  .d-block {
+    padding: 2%;
+    margin-top: 2%;
+  }
 }
-#add{
-    background-color: hsl(26, 100%, 55%);
+#add {
+  background-color: hsl(26, 100%, 55%);
 }
 .loading {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 50px;
 }

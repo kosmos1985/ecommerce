@@ -1,20 +1,27 @@
 <div class="content">
-  <div class="container" *ngFor="let womenShoes of womenCollection; let i = index">
-        <div class="women">
-            <hr>
-                <a [routerLink]="['/women', womenShoes.id]">
-                    <mat-card class="card">
-                        <mat-card-title-group>
-                            <mat-card-title>{{womenShoes.company}}</mat-card-title>
-                        </mat-card-title-group>
-                        <mat-card-content>
-                            <img mat-card-sm-image  [src]="fetchSmallImg()[i]" alt="Women shoes">
-                            <p>{{womenShoes.price | currency}}</p>
-                        </mat-card-content>
-                    </mat-card>
-                </a>
-            <hr>
-        </div> 
+  <div
+    class="container"
+    *ngFor="let womenShoes of womenCollection; let i = index"
+  >
+    <div class="women">
+      <hr />
+      <a [routerLink]="['/women', womenShoes.id]">
+        <mat-card class="card">
+          <mat-card-title-group>
+            <mat-card-title>{{ womenShoes.company }}</mat-card-title>
+          </mat-card-title-group>
+          <mat-card-content>
+            <img
+              mat-card-sm-image
+              [src]="fetchSmallImg()[i]"
+              alt="Women shoes"
+            />
+            <p>{{ womenShoes.price | currency }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+      <hr />
+    </div>
   </div>
 </div>
-<hr>
+<hr />

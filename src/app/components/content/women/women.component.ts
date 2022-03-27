@@ -6,40 +6,40 @@ import { CollectionsService } from 'src/app/services/collections.service';
 @Component({
   selector: 'app-women',
   templateUrl: './women.component.html',
-  styleUrls: ['./women.component.scss']
+  styleUrls: ['./women.component.scss'],
 })
 export class WomenComponent implements OnInit, OnDestroy {
-  
-  womenCollection : Collection []=[];
+  womenCollection: Collection[] = [];
 
   private subscription = new Subscription();
 
-  constructor(private http: CollectionsService) { }
+  constructor(private http: CollectionsService) {}
 
   ngOnInit(): void {
-    const sub = this.http.getWomenCollection().subscribe(collection => {
-      this.womenCollection = collection;
-    }, error => console.error(error),
+    const sub = this.http.getWomenCollection().subscribe(
+      (collection) => {
+        this.womenCollection = collection;
+      },
+      (error) => console.error(error)
     );
     this.subscription.add(sub);
-  };
+  }
 
-  fetchSmallImg(): Collection[]{
-    const image = this.womenCollection.filter(path=> path.small_img);
-    console.log(image);
-  
-    if(typeof image == 'undefined'){
-     return [];
+  fetchSmallImg(): Collection[] {
+    const image = this.womenCollection.filter((path) => path.small_img);
+
+    if (typeof image == 'undefined') {
+      return [];
     }
-    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
-    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
-  
-    return path;
-  };
 
+    const path = image.map((small) =>
+      Object.values(small.small_img).reverse().pop()
+    );
+
+    return path;
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  };
-
+  }
 }

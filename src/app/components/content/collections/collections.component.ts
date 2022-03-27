@@ -6,48 +6,45 @@ import { CollectionsService } from 'src/app/services/collections.service';
 @Component({
   selector: 'app-collections',
   templateUrl: './collections.component.html',
-  styleUrls: ['./collections.component.scss']
+  styleUrls: ['./collections.component.scss'],
 })
 export class CollectionsComponent implements OnInit, OnDestroy {
-
   collections: Collection[] = [];
   private subscription = new Subscription();
   isFetching = false;
- 
 
-  constructor(private http: CollectionsService) { }
+  constructor(private http: CollectionsService) {}
 
   ngOnInit(): void {
     this.fetchCollections();
-  };
+  }
 
-
-  private fetchCollections(){
+  private fetchCollections() {
     this.isFetching = true;
-    const sub = this.http.getCollections().subscribe(collections => {
-      this.isFetching = false;
-      this.collections = collections;
-      console.log(this.collections);
-      
-    }, error => console.error(error),
+    const sub = this.http.getCollections().subscribe(
+      (collections) => {
+        this.isFetching = false;
+        this.collections = collections;
+      },
+      (error) => console.error(error)
     );
     this.subscription.add(sub);
-  };
+  }
 
-  fetchSmallImg(): Collection[]{
-    const image = this.collections.filter(path=> path.small_img);
-    console.log(image);
-  
-    if(typeof image == 'undefined'){
-     return [];
+  fetchSmallImg(): Collection[] {
+    const image = this.collections.filter((path) => path.small_img);
+    if (typeof image == 'undefined') {
+      return [];
     }
-    console.log(image.map(small=> Object.values(small.small_img).reverse().pop()));
-    const  path = image.map(small=> Object.values(small.small_img).reverse().pop());
-  
+
+    const path = image.map((small) =>
+      Object.values(small.small_img).reverse().pop()
+    );
+
     return path;
-  };
-  
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
-  };
+  }
 }

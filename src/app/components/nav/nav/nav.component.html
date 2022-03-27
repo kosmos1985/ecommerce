@@ -1,9 +1,19 @@
 <ul>
-  <li><a routerLink="/collections">{{'Collections' | translate}}</a></li>
-  <li><a routerLink="/mens">Men</a></li>
-  <li><a routerLink="/womens">Women</a></li>
-  <li><a routerLink="/about">About</a></li>
-  <li><a routerLink="/contact">Contact</a></li>
+  <li>
+    <a routerLink="/collections">{{ "Collections" | translate }}</a>
+  </li>
+  <li>
+    <a routerLink="/mens">{{ "Men" | translate }}</a>
+  </li>
+  <li>
+    <a routerLink="/womens">{{ "Women" | translate }}</a>
+  </li>
+  <li>
+    <a routerLink="/about">{{ "About" | translate }}</a>
+  </li>
+  <li>
+    <a routerLink="/contact">{{ "Contact" | translate }}</a>
+  </li>
   <li *ngIf="isAuthenticated">
     <a routerLink="/cartItem">
       <mat-icon [matBadge]="cartItems.length" matBadgeColor="warn"
@@ -12,19 +22,19 @@
     </a>
   </li>
   <li *ngIf="!isAuthenticated">
-    <a routerLink="/auth">Authenticate</a>
+    <a routerLink="/auth">{{ "Authenticate" | translate }}</a>
   </li>
   <li *ngIf="isAuthenticated">
     <button mat-button [matMenuTriggerFor]="menu">
       <img src="../../../../assets/icons/image-avatar.png" alt="Avatar" />
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>User Profile</button>
-      <button mat-menu-item>Your discounts</button>
+      <button mat-menu-item>{{ "User Profile" | translate }}</button>
+      <button mat-menu-item>{{ "Your discounts" | translate }}</button>
     </mat-menu>
   </li>
   <li *ngIf="isAuthenticated">
-    <a routerLink="/auth" (click)="onLogout()">Logout</a>
+    <a routerLink="/auth" (click)="onLogout()">{{ "Logout" | translate }}</a>
   </li>
   <li>
     <mat-toolbar color="primary" class="change-lang mat-elevation-z2">
@@ -38,7 +48,7 @@
             mat-menu-item
             (click)="changeLanguage(option.code)"
             *ngFor="let option of languageList"
-            (selected)= "lang == option.code"
+            (selected)="(lang == option.code)"
           >
             {{ option.label }}
           </a>

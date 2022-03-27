@@ -1,24 +1,23 @@
-.container{
-    width: 80%;
-    height: 500px;
-    text-align: center;
-    margin-left: 22%;
-    font-size: 20px;
-    padding: 3%;
-    background-color: hsl(25, 100%, 94%);
+.container {
+  width: 80%;
+  height: 500px;
+  text-align: center;
+  margin-left: 22%;
+  font-size: 20px;
+  padding: 3%;
+  background-color: hsl(25, 100%, 94%);
 }
 agm-map {
-    height: 300px;
+  height: 300px;
 }
-.map_and_logo{
-    
-    display: flex;
-    .map{
-        width: 200px;
-        height: 200px;
-    }
-    .logo{
-        width: 200px;
-        height: 200px;
-    }
+.map_and_logo {
+  display: flex;
+  .map {
+    width: 200px;
+    height: 200px;
+  }
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
 }

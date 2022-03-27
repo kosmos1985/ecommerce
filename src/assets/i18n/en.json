@@ -1,3 +1,11 @@
 {
-    "Collections": "Collections"
+  "Collections": "Collections",
+  "Men": "Men",
+  "Women": "Women",
+  "About": "About",
+  "Contact": "Contact",
+  "Authenticate": "Authenticate",
+  "User Profile": "User Profile",
+  "Your discounts": "Your discounts",
+  "Logout": "Logout"
 }

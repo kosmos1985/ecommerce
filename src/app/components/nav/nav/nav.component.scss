@@ -1,59 +1,58 @@
-ul { 
-    margin: 50px auto 0; 
-    padding: 0; 
-    list-style: none; 
-    display: table;
-    width: 800px;
-    text-align: center;
+ul {
+  margin: 50px auto 0;
+  padding: 0;
+  list-style: none;
+  display: table;
+  width: 800px;
+  text-align: center;
 }
-li { 
-    display: table-cell; 
-    position: relative; 
-    padding: 15px 0;
+li {
+  display: table-cell;
+  position: relative;
+  padding: 15px 0;
 }
 a {
-    color:hsl(220, 14%, 75%);
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    
-    display: inline-block;
-    padding: 45px 20px;
-    position: relative;
+  color: hsl(220, 14%, 75%);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+
+  display: inline-block;
+  padding: 45px 20px;
+  position: relative;
 }
-a:hover{
-    color: black; 
+a:hover {
+  color: black;
 }
-a:after {   
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: rgb(250, 128, 14);
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
+a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: rgb(250, 128, 14);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
-a:hover:after { 
-    width: 100%; 
-    left: 0; 
+a:hover:after {
+  width: 100%;
+  left: 0;
 }
-img{
-    width: 50px;
-    height: 50px;
+img {
+  width: 50px;
+  height: 50px;
 }
 .change-lang {
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    width: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 80px;
 }
 
 @media screen and (max-height: 300px) {
-    ul {
-          margin-top: 40px;
-    }
+  ul {
+    margin-top: 40px;
+  }
 }
-  

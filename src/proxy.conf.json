@@ -1,13 +1,9 @@
-
- {	
-	 "/api/*": {
-		"target": "https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/collections.json",		
-		"secure": false,
-		"pathRewrite": {"^/api" : ""},
-		"changeOrigin": true,
-		"logLevel": "debug"
-	}
+{
+  "/api/*": {
+    "target": "https://ecommerce-e18b8-default-rtdb.europe-west1.firebasedatabase.app/collections.json",
+    "secure": false,
+    "pathRewrite": { "^/api": "" },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
 }
-
-
-

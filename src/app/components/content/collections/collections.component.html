@@ -1,37 +1,36 @@
 <div class="content">
-    <div class="container" *ngFor="let collection of collections; let i = index">
-        <div class="women" *ngIf=" collection.sex === 'Women' && !isFetching ">
-            <a class="featured-img" [routerLink]="['/women', collection.id]">
-                <mat-card class="card">
-                <mat-card-title-group>
-                    <mat-card-title>{{collection.sex}}</mat-card-title>
-                    <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
-                </mat-card-title-group>
-                <mat-card-content>
-                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id - 1]" />
-                    <p>{{collection.price | currency}}</p>
-                </mat-card-content>
-                </mat-card>
-            </a>
-        </div>
-        <hr>
-        <div class="men" *ngIf=" collection.sex === 'Men' && !isFetching ">
-            <a class="featured-img" [routerLink]="['/men', collection.id]">
-                <mat-card class="card">
-                <mat-card-title-group>
-                    <mat-card-title>{{collection.sex}}</mat-card-title>
-                    <mat-card-subtitle>{{collection.company}}</mat-card-subtitle>
-                </mat-card-title-group>
-                <mat-card-content>
-                    <img mat-card-sm-image  [src]="fetchSmallImg()[collection.id - 1]" />
-                    <p>{{collection.price | currency}}</p>
-                </mat-card-content>
-                </mat-card>
-            </a>
-        </div>
-        <p *ngIf="isFetching">
-            <mat-spinner></mat-spinner>
-        </p>
+  <div class="container" *ngFor="let collection of collections; let i = index">
+    <div class="women" *ngIf="collection.sex === 'Women' && !isFetching">
+      <a class="featured-img" [routerLink]="['/women', collection.id]">
+        <mat-card class="card">
+          <mat-card-title-group>
+            <mat-card-title>{{ collection.sex }}</mat-card-title>
+            <mat-card-subtitle>{{ collection.company }}</mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
+            <img mat-card-sm-image [src]="fetchSmallImg()[collection.id - 1]" />
+            <p>{{ collection.price | currency }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
     </div>
+    <hr />
+    <div class="men" *ngIf="collection.sex === 'Men' && !isFetching">
+      <a class="featured-img" [routerLink]="['/men', collection.id]">
+        <mat-card class="card">
+          <mat-card-title-group>
+            <mat-card-title>{{ collection.sex }}</mat-card-title>
+            <mat-card-subtitle>{{ collection.company }}</mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
+            <img mat-card-sm-image [src]="fetchSmallImg()[collection.id - 1]" />
+            <p>{{ collection.price | currency }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <p *ngIf="isFetching">
+      <mat-spinner></mat-spinner>
+    </p>
+  </div>
 </div>
-

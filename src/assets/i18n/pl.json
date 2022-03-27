@@ -1,3 +1,11 @@
 {
-    "Collections": "Kolekcje"
+  "Collections": "Kolekcje",
+  "Men": "Męska",
+  "Women": "Żeńska",
+  "About": "O nas",
+  "Contact": "Kontakt",
+  "Authenticate": "Autentykacja",
+  "User Profile": "Profil użytkownika",
+  "Your discounts": "Twoje zniżki",
+  "Logout": "Wyloguj"
 }
