@@ -11,18 +11,34 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class NavComponent implements OnInit, OnDestroy {
 
+  lang!: string;
+  languageList: any = [
+    { code: 'en', label: 'English' },
+    { code: 'pl', label: 'Polish' },
+  ];
+
   cartItems!: Collection[];
   isAuthenticated = false;
   private userSub!: Subscription;
 
-  constructor(private cartService: CartService, private authService: AuthService) { }
+  constructor(
+    private cartService: CartService, 
+    private authService: AuthService) {}
 
   ngOnInit(): void {
+
+    this.lang = localStorage.getItem('lang') || 'en';
+    
     this.cartItems = this.cartService.cartItems;  
     this.userSub = this.authService.user.subscribe(user=>{
       this.isAuthenticated = !!user.tocken
     });   
   };
+
+  changeLanguage(lang : string){
+    localStorage.setItem('lang', lang);
+    window.location.reload();
+  }
 
   onLogout(){
     this.authService.logout();

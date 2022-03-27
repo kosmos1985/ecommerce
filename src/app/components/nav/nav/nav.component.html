@@ -1,29 +1,49 @@
 <ul>
-    <li><a routerLink="/collections">Collections</a></li>
-    <li><a routerLink="/mens">Men</a></li>
-    <li><a routerLink="/womens">Women</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
-    <li *ngIf="isAuthenticated">
-        <a routerLink="/cartItem">
-            <mat-icon 
-                [matBadge]="cartItems.length" 
-                matBadgeColor="warn"
-                >shopping_cart
-            </mat-icon>
-        </a>
-    </li>
-    <li *ngIf="!isAuthenticated">
-        <a routerLink="/auth">Authenticate</a>
-    </li>
-    <li *ngIf="isAuthenticated">
-            <button mat-button [matMenuTriggerFor]="menu">
-                <img src="../../../../assets/icons/image-avatar.png" alt="Avatar">
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>User Profile</button>
-                <button mat-menu-item>Your discounts</button>
-            </mat-menu>
-    </li>
-    <li *ngIf="isAuthenticated"><a routerLink="/auth"  (click)="onLogout()">Logout</a></li>
+  <li><a routerLink="/collections">{{'Collections' | translate}}</a></li>
+  <li><a routerLink="/mens">Men</a></li>
+  <li><a routerLink="/womens">Women</a></li>
+  <li><a routerLink="/about">About</a></li>
+  <li><a routerLink="/contact">Contact</a></li>
+  <li *ngIf="isAuthenticated">
+    <a routerLink="/cartItem">
+      <mat-icon [matBadge]="cartItems.length" matBadgeColor="warn"
+        >shopping_cart
+      </mat-icon>
+    </a>
+  </li>
+  <li *ngIf="!isAuthenticated">
+    <a routerLink="/auth">Authenticate</a>
+  </li>
+  <li *ngIf="isAuthenticated">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img src="../../../../assets/icons/image-avatar.png" alt="Avatar" />
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>User Profile</button>
+      <button mat-menu-item>Your discounts</button>
+    </mat-menu>
+  </li>
+  <li *ngIf="isAuthenticated">
+    <a routerLink="/auth" (click)="onLogout()">Logout</a>
+  </li>
+  <li>
+    <mat-toolbar color="primary" class="change-lang mat-elevation-z2">
+      <ng-container>
+        <mat-icon>language</mat-icon>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a
+            mat-menu-item
+            (click)="changeLanguage(option.code)"
+            *ngFor="let option of languageList"
+            (selected)= "lang == option.code"
+          >
+            {{ option.label }}
+          </a>
+        </mat-menu>
+      </ng-container>
+    </mat-toolbar>
+  </li>
 </ul>

@@ -1,20 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from './components/auth/auth.service';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
   destroyed = new Subject<void>();
   currentScreenSize!: string;
-  config!: { [key: string]: string; };
-
+  config!: { [key: string]: string };
 
   displayNameMap = new Map([
     [Breakpoints.XSmall, 'XSmall'],
@@ -23,8 +22,12 @@ export class AppComponent implements OnInit, OnDestroy{
     [Breakpoints.Large, 'Large'],
     [Breakpoints.XLarge, 'XLarge'],
   ]);
- 
-  constructor(breakpointObserver: BreakpointObserver, private authService: AuthService) {
+
+  constructor(
+    breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private translateService: TranslateService
+  ) {
     breakpointObserver
       .observe([
         Breakpoints.XSmall,
@@ -34,29 +37,31 @@ export class AppComponent implements OnInit, OnDestroy{
         Breakpoints.XLarge,
       ])
       .pipe(takeUntil(this.destroyed))
-      .subscribe(result => {
+      .subscribe((result) => {
         for (const query of Object.keys(result.breakpoints)) {
           if (result.breakpoints[query]) {
-            this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
+            this.currentScreenSize =
+              this.displayNameMap.get(query) ?? 'Unknown';
           }
         }
       });
+      this.translateService.setDefaultLang('en');
+      this.translateService.use(localStorage.getItem('lang') || 'en');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     setTimeout(() => {
       this.config = {
         title: 'Ecommerce',
         footer: ' © Ecommerce, All rights reserved.',
-        date: new Date().toDateString()
+        date: new Date().toDateString(),
       };
     }, 500);
     this.authService.autoLogin();
-  };
+  }
 
   ngOnDestroy() {
     this.destroyed.next();
     this.destroyed.complete();
-  };
-  
+  }
 }

@@ -10,7 +10,6 @@ import { Map } from '../models/map';
 import { KindOfDataResponse } from '../models/enum';
 
 
-
 const httpOptions = {
 	headers: new HttpHeaders({
     'Access-Control-Allow-Origin': '*',

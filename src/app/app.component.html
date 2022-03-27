@@ -1,18 +1,15 @@
 <div class="container">
   <app-nav></app-nav>
-  <hr>
-    <div class="content">
-      <div class="title">
-        {{config?.title}}
-      </div>
-        <router-outlet></router-outlet>
+  <hr />
+  <div class="content">
+    <div class="title">
+      {{ config?.title }}
     </div>
-      <footer>
-        <div class="footer-copyright">
-            {{config?.date | date:'short'}} {{config?.footer}}
-        </div>
-      </footer>
- </div>
-
-
-
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <div class="footer-copyright">
+      {{ config?.date | date: "short" }} {{ config?.footer }}
+    </div>
+  </footer>
+</div>

@@ -2,16 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { IvyGalleryModule } from 'angular-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -30,10 +35,14 @@ import { ShoesToBuyComponent } from './components/content/shoes-to-buy/shoes-to-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { LogginInterceptorService } from './interceptors/loggin-inteceptor.service';
+import { LanguageInterceptorService } from './interceptors/language-interceptor.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -51,9 +60,9 @@ import { AuthComponent } from './components/auth/auth/auth.component';
   ],
   imports: [
     BrowserModule,
-      AgmCoreModule.forRoot({
-  apiKey: 'AIzaSyBlfYV2V0c5mjMltRS9iZb71M6Z-qGVaIo'
-}),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBlfYV2V0c5mjMltRS9iZb71M6Z-qGVaIo',
+    }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -66,21 +75,35 @@ import { AuthComponent } from './components/auth/auth/auth.component';
     MatBadgeModule,
     MatButtonModule,
     MatMenuModule,
+    MatToolbarModule,
     MatProgressSpinnerModule,
     LayoutModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: LogginInterceptorService,
-    multi: true
-  }
-],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogginInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptorService,
+      multi: true,
+    },
+    HttpClient,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
