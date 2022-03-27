@@ -1,11 +1,55 @@
 {
   "Collections": "Kolekcje",
   "Men": "Męska",
-  "Women": "Żeńska",
+  "Women": "Damska",
   "About": "O nas",
   "Contact": "Kontakt",
   "Authenticate": "Autentykacja",
   "User Profile": "Profil użytkownika",
   "Your discounts": "Twoje zniżki",
-  "Logout": "Wyloguj"
+  "Logout": "Wyloguj",
+  "Errors appear instantly!" : "Błędy podczas pisania",
+  "Please enter a valid email address" : "Proszę wpisać poprawny adres email",
+  "Email is" : "Email jest",
+  "required" : "wymagany",
+  "Password" : "Hasło",
+  "Please enter a valid password. Passord is so short." :"Proszę wprowadzić poprawne hasło. To hasło jest za krótkie.",
+  "Password is": "Hasło jest",
+  "collections": [{
+    "company" : "Snakers",
+    "description" : "Firma Sneakers ma siedzibę w Mobile, AL, Stany Zjednoczone i jest częścią branży obuwniczej. Sneakers zatrudnia łącznie 3 pracowników we wszystkich swoich lokalizacjach i generuje 192 080 USD ze sprzedaży (USD). (Wartość sprzedaży jest modelowana).",
+    "id" : 1,
+    "sex" : "Damskie",
+    "title" : "Kolekcja jesienna ograniczona"
+  }, {
+    "company" : "Adidas",
+    "description" : "Adidas AG (adidas) projektuje, produkuje i sprzedaje produkty sportowe i lifestylowe. Portfolio produktów firmy obejmuje obuwie, odzież i sprzęt, taki jak torby, kije i piłki. Sprzedaje produkty pod marką adidas.",
+    "id" : 2,
+    "sex" : "Damskie",
+    "title" : "Dla kobiet kochających sport"
+  }, {
+    "company" : "Snakers",
+    "description" : "Firma Sneakers ma siedzibę w Mobile, AL, Stany Zjednoczone i jest częścią branży obuwniczej. Sneakers zatrudnia łącznie 3 pracowników we wszystkich swoich lokalizacjach i generuje 192 080 USD ze sprzedaży (USD). (Wartość sprzedaży jest modelowana).",
+    "id" : 3,
+    "sex" : "Męskie",
+    "title" : "Dla kreatywnych mężczyzn"
+  }, {
+    "company" : "Adidas",
+    "description" : "Adidas AG (adidas) projektuje, produkuje i sprzedaje produkty sportowe i lifestylowe. Portfolio produktów firmy obejmuje obuwie, odzież i sprzęt, taki jak torby, kije i piłki. Sprzedaje produkty pod marką adidas.",
+    "id" : 4,
+    "sex" : "Męskie",
+    "title" : "Dla mężczyzn kochajęcych sport"
+  }, {
+    "desctription" : "Strona O nas powinna zawierać podstawowe informacje o sklepie i jego założycielach, wyjaśniać cel firmy i czym różni się od konkurencji oraz zachęcać do dyskusji i interakcji. ... Co najważniejsze, da Twoim klientom powód do zakupów w Twojej marce.",
+    "id" : 5
+  }, {
+    "id" : 6,
+    "title" : "Jesteśmy tutaj!"
+  }, {
+    "contact_number" : "444444444",
+    "email" : "hh@wp.pl",
+    "id" : 7,
+    "message" : "sssss",
+    "name" : "hh"
+  } ]
 }

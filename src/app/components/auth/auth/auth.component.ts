@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from '../auth.service';
 
@@ -38,7 +39,7 @@ export class AuthComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   form_fields = {
@@ -53,6 +54,7 @@ export class AuthComponent {
   };
 
   matcher = new MyErrorStateMatcher();
+
 
   switchLoginMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -76,13 +78,14 @@ export class AuthComponent {
 
     authObservable.subscribe(
       (resData) => {
+        console.log(resData);
         this.isLoading = false;
         this.router.navigate(['/collections']);
       },
       (errorMessage) => {
         console.log(errorMessage);
         this.error = errorMessage;
-        this, (this.isLoading = false);
+        this.isLoading = false;
       }
     );
 

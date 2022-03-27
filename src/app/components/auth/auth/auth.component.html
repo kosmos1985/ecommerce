@@ -20,21 +20,22 @@
         [errorStateMatcher]="matcher"
         placeholder="Ex. pat@example.com"
       />
-      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-hint>{{ "Errors appear instantly!" | translate }}</mat-hint>
       <mat-error
         *ngIf="
           form_fields.emailFormControl.hasError('email') &&
           !form_fields.emailFormControl.hasError('required')
         "
       >
-        Please enter a valid email address
+        {{ "Please enter a valid email address" | translate }}
       </mat-error>
       <mat-error *ngIf="form_fields.emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
+        {{ "Email is" | translate }}
+        <strong>{{ "required" | translate }}</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width" appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label>{{ "Password" | translate }}</mat-label>
       <input
         type="password"
         matInput
@@ -42,17 +43,18 @@
         [errorStateMatcher]="matcher"
         placeholder="Ex. 123456"
       />
-      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-hint>{{ "Errors appear instantly!" | translate }}</mat-hint>
       <mat-error
         *ngIf="
           form_fields.passwordFormControl.hasError('minLength') &&
           !form_fields.passwordFormControl.hasError('required')
         "
       >
-        Please enter a valid password. Passord is so short.
+        {{ "Please enter a valid password. Passord is so short." | translate }}'
       </mat-error>
       <mat-error *ngIf="form_fields.passwordFormControl.hasError('required')">
-        Password is <strong>required</strong>
+        {{ "Password is" | translate }}
+        <strong>{{ "required" | translate }}</strong>
       </mat-error>
     </mat-form-field>
     <button

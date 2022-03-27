@@ -13,7 +13,6 @@ export class LogginInterceptorService implements HttpInterceptor {
       tap((event) => {
         if (event.type === HttpEventType.Response) {
           console.log('Incoming response, body data:');
-          console.log(event.body);
         }
       })
     );
