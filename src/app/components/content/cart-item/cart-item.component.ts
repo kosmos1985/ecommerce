@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Collection } from 'src/app/models/collection';
 import { CartService } from 'src/app/services/cart.service';
 

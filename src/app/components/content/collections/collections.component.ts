@@ -34,9 +34,10 @@ export class CollectionsComponent implements OnInit, OnDestroy {
     );
     this.subscription.add(sub);
     this.translate.get(['collections.sex']).subscribe((translations) => {
-      this.collections = translations['collections.sex'];
+      this.collections = Array.of(translations['collections.sex']);
     });
   }
+ 
 
   fetchSmallImg(): Collection[] {
     const image = this.collections.filter((path) => path.small_img);

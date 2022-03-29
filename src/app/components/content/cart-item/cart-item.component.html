@@ -15,7 +15,7 @@
     </mat-card-title-group>
     <mat-card-content>
       <img mat-card-sm-image [src]="fetchSmallImg()[i]" />
-      <p>{{ item.description }}</p>
+      <p>{{ item.description | translate }}</p>
       <p>{{ item.price | currency }}</p>
       <button
         mat-stroked-button
