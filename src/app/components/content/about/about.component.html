@@ -2,10 +2,10 @@
   <mat-card class="card">
     <hr />
     <mat-card-title-group>
-      <mat-card-title>{{ about.desctription }}</mat-card-title>
+      <mat-card-title>{{ "about.desctription" | translate }}</mat-card-title>
     </mat-card-title-group>
     <mat-card-content>
-      <p>{{ map.title }}</p>
+      <p>{{ "map.title" | translate }}</p>
       <agm-map [latitude]="map.lat" [longitude]="map.lng">
         <agm-marker [latitude]="map.lat" [longitude]="map.lng"> </agm-marker>
       </agm-map>

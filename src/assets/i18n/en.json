@@ -8,49 +8,50 @@
   "User Profile": "User Profile",
   "Your discounts": "Your discounts",
   "Logout": "Logout",
-  "Errors appear instantly!" : "Errors appear instantly!",
-  "Please enter a valid email address" : "Please enter a valid email address",
-  "Email is" : "Email is",
-  "required" : "required",
-  "Password" : "Password",
-  "Please enter a valid password. Passord is so short." :"Please enter a valid password. Passord is so short.",
+  "Errors appear instantly!": "Errors appear instantly!",
+  "Please enter a valid email address": "Please enter a valid email address",
+  "Email is": "Email is",
+  "required": "required",
+  "Password": "Password",
+  "Please enter a valid password. Passord is so short.": "Please enter a valid password. Passord is so short.",
   "Password is": "Password is",
-  "collections": [{
-    "company" : "Snakers",
-    "description" : "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
-    "id" : 1,
-    "sex" : "Women",
-    "title" : "Fall limited snakers"
-  }, {
-    "company" : "Adidas",
-    "description" : "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
-    "id" : 2,
-    "sex" : "Women",
-    "title" : "For women loving sport"
-  }, {
-    "company" : "Snakers",
-    "description" : "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
-    "id" : 3,
-    "sex" : "Men",
-    "title" : "For creating men"
-  }, {
-    "company" : "Adidas",
-    "description" : "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
-    "id" : 4,
-    "sex" : "Men",
-    "title" : "For men loving sport"
-  }, {
-    "desctription" : "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand.",
-    "id" : 5
-  }, {
-    "id" : 6,
-    "title" : "We are here!"
-  }, {
-    "contact_number" : "444444444",
-    "email" : "hh@wp.pl",
-    "id" : 7,
-    "message" : "sssss",
-    "name" : "hh"
-  } ]
-
+  "Login": "Login",
+  "Sing up": "Sing up",
+  "Switch to": "Switch to",
+  "collections": [
+    {
+      "company": "Snakers",
+      "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
+      "id": 1,
+      "sex": "Women",
+      "title": "Fall limited snakers"
+    },
+    {
+      "company": "Adidas",
+      "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
+      "id": 2,
+      "sex": "Women",
+      "title": "For women loving sport"
+    },
+    {
+      "company": "Snakers",
+      "description": "Sneakers is located in Mobile, AL, United States and is part of the Shoe Stores Industry. Sneakers has 3 total employees across all of its locations and generates $192,080 in sales (USD). (Sales figure is modelled).",
+      "id": 3,
+      "sex": "Men",
+      "title": "For creating men"
+    },
+    {
+      "company": "Adidas",
+      "description": "Adidas AG (adidas) designs, manufactures and markets athletic and sports lifestyle products. The company's product portfolio includes footwear, apparel and hardware such as bags, bats and balls. It markets products under adidas brand.",
+      "id": 4,
+      "sex": "Men",
+      "title": "For men loving sport"
+    }
+  ],
+  "about": {
+    "desctription": "An About Us page should make sure to cover basic information about the store and its founders, explain the company's purpose and how it differs from the competition, and encourage discussion and interaction. ...  Most importantly, it will give your customers a reason to shop from your brand."
+  },
+  "map": {
+    "title": "We are here!"
+  }
 }

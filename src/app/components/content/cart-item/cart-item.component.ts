@@ -20,14 +20,11 @@ export class CartItemComponent implements OnInit {
 
   fetchSmallImg(): Collection[] {
     const image = this.cartItems.filter((path) => path.small_img);
-    console.log(image);
 
     if (typeof image == 'undefined') {
       return [];
     }
-    console.log(
-      image.map((small) => Object.values(small.small_img).reverse().pop())
-    );
+
     const path = image.map((small) =>
       Object.values(small.small_img).reverse().pop()
     );

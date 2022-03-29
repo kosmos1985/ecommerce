@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { About } from 'src/app/models/about';
 import { Map } from 'src/app/models/map';
@@ -15,7 +16,10 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   private subscription = new Subscription();
 
-  constructor(private http: CollectionsService) {}
+  constructor(
+    private http: CollectionsService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     const subAbout = this.http.getAbout().subscribe(
@@ -34,6 +38,12 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     this.subscription.add(subAbout);
     this.subscription.add(subMap);
+    this.translate
+      .get(['about.description', 'map.title'])
+      .subscribe((translations) => {
+        this.about = translations['about.desctription'];
+        this.map = translations['map.title'];
+      });
   }
 
   ngOnDestroy() {

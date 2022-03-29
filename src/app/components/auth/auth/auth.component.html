@@ -63,7 +63,7 @@
       type="submit"
       [disabled]="!form.valid"
     >
-      {{ isLoginMode ? "Login" : "Sing up" }}
+      {{ isLoginMode ? "Login" : "Sing up" }} 
     </button>
     |
     <button
@@ -72,7 +72,7 @@
       type="button"
       (click)="switchLoginMode()"
     >
-      Switch to {{ isLoginMode ? "Sing up" : "Login" }}
+      {{"Switch to" | translate}} {{ isLoginMode ? "Sing up" : "Login"}} 
     </button>
   </form>
 </div>

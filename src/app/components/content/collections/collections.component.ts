@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
@@ -13,7 +14,10 @@ export class CollectionsComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
   isFetching = false;
 
-  constructor(private http: CollectionsService) {}
+  constructor(
+    private http: CollectionsService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.fetchCollections();
@@ -29,6 +33,9 @@ export class CollectionsComponent implements OnInit, OnDestroy {
       (error) => console.error(error)
     );
     this.subscription.add(sub);
+    this.translate.get(['collections.sex']).subscribe((translations) => {
+      this.collections = translations['collections.sex'];
+    });
   }
 
   fetchSmallImg(): Collection[] {
