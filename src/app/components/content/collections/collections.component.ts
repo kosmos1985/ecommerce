@@ -37,7 +37,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
       this.collections = Array.of(translations['collections.sex']);
     });
   }
- 
 
   fetchSmallImg(): Collection[] {
     const image = this.collections.filter((path) => path.small_img);

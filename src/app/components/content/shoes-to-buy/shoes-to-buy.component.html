@@ -1,4 +1,4 @@
-<ng-container *ngIf="item | async as item; else spinner">
+<ng-container *ngIf="item; else spinner">
   <div class="container">
     <div class="gallery">
       <img
@@ -22,7 +22,7 @@
     <div class="cart">
       <div class="desctription">
         <h3>{{ item.company }}</h3>
-        <p>{{ item.description }}</p>
+        <p>{{ item.description | translate}}</p>
         <p><strong>Price:</strong> {{ item.price }} $</p>
         <button mat-stroked-button (click)="decrease(item, totalAmount)">
           <mat-icon aria-hidden="false">remove</mat-icon>

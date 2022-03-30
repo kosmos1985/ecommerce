@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Gallery } from 'angular-gallery';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { delay, map, switchMap } from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shoes-to-buy',
   templateUrl: './shoes-to-buy.component.html',
   styleUrls: ['./shoes-to-buy.component.scss'],
 })
-export class ShoesToBuyComponent implements OnInit {
+export class ShoesToBuyComponent implements OnInit, OnDestroy {
   cartItems!: Collection[];
-  item!: Observable<Collection>;
+  item!: Collection;
+  private subscription = new Subscription();
   totalAmount!: number;
   img_path1!: string;
   img_path2!: string;
@@ -29,15 +31,30 @@ export class ShoesToBuyComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private collectionService: CollectionsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
-    this.item = this.route.paramMap.pipe(
-      map((params) => +params.get('id')!),
-      switchMap((id) => this.collectionService.getItem(id))
-    );
+    const sub = this.route.paramMap
+      .pipe(
+        map((params) => +params.get('id')!),
+        switchMap((id) => this.collectionService.getItem(id))
+      )
+      .subscribe(
+        (searchItem) => {
+          this.item = searchItem;
+        },
+        (error) => console.error(error)
+      );
     this.cartItems = this.cartService.cartItems;
+    this.subscription.add(sub);
+    this.getTranslate();
+  }
+  getTranslate() {
+    this.translate.get('collections.description').subscribe((translations) => {
+      this.item = translations['collections.description'];
+    });
   }
 
   fetchFirstSmallImg(item: Collection) {
@@ -85,5 +102,8 @@ export class ShoesToBuyComponent implements OnInit {
       index,
     };
     this.gallery.load(prop);
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
