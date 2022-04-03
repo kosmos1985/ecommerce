@@ -1,6 +1,10 @@
 <div class="content">
   <div class="container" *ngFor="let collection of collections">
-    <div class="women" *ngIf="collection.sex === 'Women' && !isFetching">
+    <div
+      class="women"
+      *ngIf="collection.sex === 'Women' && !isFetching"
+      appAttractivebackground
+    >
       <a class="featured-img" [routerLink]="['/women', collection.id]">
         <mat-card class="card">
           <mat-card-title-group>
@@ -15,7 +19,11 @@
       </a>
     </div>
     <hr />
-    <div class="men" *ngIf="collection.sex === 'Men' && !isFetching">
+    <div
+      class="men"
+      *ngIf="collection.sex === 'Men' && !isFetching"
+      appAttractivebackground
+    >
       <a class="featured-img" [routerLink]="['/men', collection.id]">
         <mat-card class="card">
           <mat-card-title-group>

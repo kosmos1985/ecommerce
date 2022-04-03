@@ -1,5 +1,9 @@
 <div class="content">
-  <div class="container" *ngFor="let menShoes of menCollection; let i = index">
+  <div
+    class="container"
+    *ngFor="let menShoes of menCollection; let i = index"
+    appAttractivebackground
+  >
     <div class="men">
       <hr />
       <a [routerLink]="['/men', menShoes.id]">

@@ -39,6 +39,7 @@ import { LanguageInterceptorService } from './interceptors/language-interceptor.
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AttractivebackgroundDirective } from './attractivebackground.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartItemComponent,
     ShoesToBuyComponent,
     AuthComponent,
+    AttractivebackgroundDirective,
   ],
   imports: [
     BrowserModule,

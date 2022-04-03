@@ -4,8 +4,8 @@ import { Gallery } from 'angular-gallery';
 import { Collection } from 'src/app/models/collection';
 import { CollectionsService } from 'src/app/services/collections.service';
 import { Location } from '@angular/common';
-import { Observable, Subscription } from 'rxjs';
-import { delay, map, switchMap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -17,6 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class ShoesToBuyComponent implements OnInit, OnDestroy {
   cartItems!: Collection[];
   item!: Collection;
+  //param = {value: this.item.description};
   private subscription = new Subscription();
   totalAmount!: number;
   img_path1!: string;
@@ -25,6 +26,7 @@ export class ShoesToBuyComponent implements OnInit, OnDestroy {
   img_path4!: string;
 
   index: number = 0;
+  
 
   constructor(
     private gallery: Gallery,
@@ -32,7 +34,7 @@ export class ShoesToBuyComponent implements OnInit, OnDestroy {
     private location: Location,
     private collectionService: CollectionsService,
     private cartService: CartService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -44,18 +46,19 @@ export class ShoesToBuyComponent implements OnInit, OnDestroy {
       .subscribe(
         (searchItem) => {
           this.item = searchItem;
+          // this.param = {value: this.item.description};
         },
         (error) => console.error(error)
       );
     this.cartItems = this.cartService.cartItems;
     this.subscription.add(sub);
-    this.getTranslate();
+    // this.getTranslate();
   }
-  getTranslate() {
-    this.translate.get('collections.description').subscribe((translations) => {
-      this.item = translations['collections.description'];
-    });
-  }
+  // getTranslate() {
+  //   this.translate.get('collections.description',  {value: this.param}).subscribe((translations) => {
+  //     this.item = translations['collections.description'];
+  //   });
+  // }
 
   fetchFirstSmallImg(item: Collection) {
     return Object.values(item.small_img)[0];
