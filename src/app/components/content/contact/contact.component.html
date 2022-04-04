@@ -17,8 +17,8 @@
         <div class="screen-body">
           <div class="screen-body-item left">
             <div class="app-title">
-              <span>CONTACT</span>
-              <span>US</span>
+              <span>{{ "CONTACT" | translate }}</span>
+              <span>{{ "US" | translate }}</span>
             </div>
           </div>
           <form [formGroup]="fields" (ngSubmit)="onSubmit()">
@@ -28,7 +28,7 @@
                   <input
                     type="text"
                     class="app-form-control"
-                    placeholder="NAME"
+                    placeholder="{{ 'NAME' | translate }}"
                     formControlName="name"
                     minlength="2"
                   />
@@ -40,10 +40,10 @@
                   "
                 >
                   <span *ngIf="fields.get('name')!.hasError('required')">
-                    Name is required
+                    {{ "Name is" | translate }} {{ "required" | translate }}
                   </span>
                   <span *ngIf="fields.get('name')!.hasError('minlength')">
-                    Name is so short
+                    {{ "Name is" | translate }} {{ "so short" | translate }}
                   </span>
                 </div>
                 <div class="app-form-group">
@@ -61,20 +61,24 @@
                   "
                 >
                   <span *ngIf="fields.get('email')!.hasError('required')">
-                    Email is required
+                    {{ "Email is" | translate }} {{ "required" | translate }}
                   </span>
                   <span *ngIf="fields.get('email')!.hasError('email')">
-                    Email is not avalible
+                    {{ "Email is" | translate }}
+                    {{ "not avalible" | translate }}
                   </span>
                   <span *ngIf="fields.get('email')!.hasError('pattern')">
-                    The e-mail contains characters that are not allowed
+                    {{
+                      "The e-mail contains characters that are not allowed"
+                        | translate
+                    }}
                   </span>
                 </div>
                 <div class="app-form-group">
                   <input
                     type="text"
                     class="app-form-control"
-                    placeholder="CONTACT NUMBER"
+                    placeholder="{{ 'CONTACT NUMBER' | translate }}"
                     formControlName="contact_number"
                   />
                 </div>
@@ -88,24 +92,31 @@
                   <span
                     *ngIf="fields.get('contact_number')!.hasError('maxlength')"
                   >
-                    Contact number is so long
+                    {{ "Contact number is so long" | translate }}
                   </span>
                   <span
                     *ngIf="fields.get('contact_number')!.hasError('pattern')"
                   >
-                    The contact number contains characters that are not allowed
+                    {{
+                      "The contact number contains characters that are not allowed"
+                        | translate
+                    }}
                   </span>
                 </div>
                 <div class="app-form-group message">
                   <textarea
                     class="app-form-control"
-                    placeholder="MESSAGE"
+                    placeholder="{{ 'MESSAGE' | translate }}"
                     formControlName="message"
                   ></textarea>
                 </div>
                 <div class="app-form-group buttons">
-                  <button class="app-form-button">CANCEL</button>
-                  <button type="submit" class="app-form-button">SEND</button>
+                  <button class="app-form-button">
+                    {{ "CANCEL" | translate }}
+                  </button>
+                  <button type="submit" class="app-form-button">
+                    {{ "SEND" | translate }}
+                  </button>
                 </div>
               </div>
             </div>

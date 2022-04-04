@@ -7,7 +7,6 @@ import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shoes-to-buy',
@@ -17,7 +16,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class ShoesToBuyComponent implements OnInit, OnDestroy {
   cartItems!: Collection[];
   item!: Collection;
-  //param = {value: this.item.description};
   private subscription = new Subscription();
   totalAmount!: number;
   img_path1!: string;
@@ -26,15 +24,13 @@ export class ShoesToBuyComponent implements OnInit, OnDestroy {
   img_path4!: string;
 
   index: number = 0;
-  
 
   constructor(
     private gallery: Gallery,
     private route: ActivatedRoute,
     private location: Location,
     private collectionService: CollectionsService,
-    private cartService: CartService,
-    private translate: TranslateService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -46,19 +42,12 @@ export class ShoesToBuyComponent implements OnInit, OnDestroy {
       .subscribe(
         (searchItem) => {
           this.item = searchItem;
-          // this.param = {value: this.item.description};
         },
         (error) => console.error(error)
       );
     this.cartItems = this.cartService.cartItems;
     this.subscription.add(sub);
-    // this.getTranslate();
   }
-  // getTranslate() {
-  //   this.translate.get('collections.description',  {value: this.param}).subscribe((translations) => {
-  //     this.item = translations['collections.description'];
-  //   });
-  // }
 
   fetchFirstSmallImg(item: Collection) {
     return Object.values(item.small_img)[0];

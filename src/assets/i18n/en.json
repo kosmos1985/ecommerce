@@ -18,6 +18,13 @@
   "Login": "Login",
   "Sing up": "Sing up",
   "Switch to": "Switch to",
+  "Name is":"Name is",
+  "The e-mail contains characters that are not allowed":"The e-mail contains characters that are not allowed",
+  "not avalible": "not avalible",
+  "Contact number is so long":"Contact number is so long",
+  "The contact number contains characters that are not allowed":"The contact number contains characters that are not allowed",
+  "CANCEL":"CANCEL",
+  "SEND":"SEND",
   "collections": [
     {
       "company": "Snakers",
